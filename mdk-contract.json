@@ -229,6 +229,8 @@
       "ERR_C2POOL_CONFIG_INVALID": "A device config key is unknown, or coin, hashrateFloor, pollIntervalMs, timeoutMs, noShareAlertMs or recentBlocks is of the wrong type or out of range; the message names the key",
       "ERR_C2POOL_COIN_MISMATCH": "The configured coin does not match the node's /node_info symbol",
       "ERR_C2POOL_RELAY_NODE": "The node runs without a stratum acceptor (node_role relay); it has no local miners, point the worker at the node your rigs connect to",
+      "ERR_C2POOL_PATH_NOT_ALLOWED": "Internal guard: the worker tried to request a path outside its GET allow-list and nothing was sent. This is a bug in the worker; please report it",
+      "ERR_C2POOL_UNKNOWN_CHANNEL": "Internal guard: a handler asked the snapshot for a channel it does not compute. This is a bug in the worker; please report it",
       "ERR_C2POOL_NOT_READY": "The node is up but /web/sync_status.ready is false (no verified shares or no work template yet); the PPLNS payout channels fail with it rather than report a projection from an unverified sharechain"
     }
   }

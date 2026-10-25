@@ -1,6 +1,8 @@
 'use strict'
 
 const test = require('brittle')
+const fs = require('node:fs')
+const path = require('node:path')
 const { setTimeout: sleep } = require('node:timers/promises')
 const { loadContract, createInstance, validateContract } = require('../../src/mdk')
 const { createServer } = require('../../mock/server')
@@ -56,6 +58,21 @@ test('the contract validates against the MDK schema and every handler loads', t 
   for (const fn of inst.telemetry.values()) t.is(typeof fn, 'function')
   t.is(plugin.dir, PKG_DIR)
   t.is(plugin.contract, contract)
+})
+
+test('every ERR_C2POOL_* code the source can raise is declared in the contract', t => {
+  const files = []
+  const walk = (dir) => {
+    for (const entry of fs.readdirSync(dir, { withFileTypes: true })) {
+      const file = path.join(dir, entry.name)
+      if (entry.isDirectory()) walk(file)
+      else if (entry.name.endsWith('.js')) files.push(file)
+    }
+  }
+  walk(path.join(PKG_DIR, 'src'))
+  const codes = new Set(files.flatMap(f => fs.readFileSync(f, 'utf8').match(/ERR_C2POOL_[A-Z_]+/g) || []))
+  t.ok(codes.size > 10)
+  for (const code of codes) t.ok(code in contract.capabilities.errors, `${code} is declared`)
 })
 
 test('the snapshot computes every contract channel but health', async t => {
