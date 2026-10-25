@@ -1,0 +1,6 @@
+{
+  "nodeUrl": "http://127.0.0.1:8080",
+  "coin": "BTC",
+  "addresses": ["bc1q..."],
+  "hashrateFloor": null
+}

@@ -1,0 +1,64 @@
+{
+  "name": "c2pool-mdk-worker",
+  "version": "0.1.0",
+  "description": "c2pool node worker for Tether MDK: read-only telemetry from a self-hosted c2pool (p2pool) node",
+  "keywords": [
+    "tether",
+    "mdk",
+    "c2pool",
+    "p2pool",
+    "minerpool"
+  ],
+  "author": "frstrtr",
+  "license": "Apache-2.0",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/frstrtr/c2pool-mdk-worker.git"
+  },
+  "homepage": "https://github.com/frstrtr/c2pool-mdk-worker#readme",
+  "bugs": {
+    "url": "https://github.com/frstrtr/c2pool-mdk-worker/issues"
+  },
+  "main": "index.js",
+  "engines": {
+    "node": ">=24",
+    "npm": ">=11 <12"
+  },
+  "type": "commonjs",
+  "files": [
+    "index.js",
+    "mdk-contract.json",
+    "smoke.config.js",
+    "src/",
+    "mock/",
+    "config/*.example",
+    "README.md",
+    "LICENSE",
+    "NOTICE",
+    "SECURITY.md"
+  ],
+  "scripts": {
+    "setup:mdk": "npm --prefix node_modules/@tetherto/mdk install --ignore-scripts",
+    "setup:local": "node -e \"const fs=require('fs'),p='node_modules/@tetherto/mdk';fs.rmSync(p,{recursive:true,force:true});fs.symlinkSync(require('path').resolve(process.env.MDK_DIR||'../mdk'),p,'dir');console.log(p,'->',fs.realpathSync(p))\"",
+    "lint": "standard",
+    "lint:fix": "standard --fix",
+    "mock": "node mock/server.js",
+    "verify:live": "node examples/verify-live.js",
+    "validate:worker": "node node_modules/@tetherto/mdk/packages/mdk-skill/src/skills/mdk-worker-plugin/scripts/worker-smoke.mjs .",
+    "test": "npm run lint && npm run test:unit && npm run test:integration",
+    "test:unit": "NODE_ENV=test brittle tests/unit/**/*.test.js",
+    "test:integration": "NODE_ENV=test brittle tests/integration/**/*.test.js",
+    "test:coverage": "NODE_ENV=test brittle --coverage 'tests/**/*.test.js'"
+  },
+  "peerDependencies": {
+    "@tetherto/mdk": "*"
+  },
+  "devDependencies": {
+    "@hyperswarm/rpc": "3.5.0",
+    "@tetherto/mdk": "git+https://github.com/tetherto/mdk.git#35c144f240f098502df92ef97944ce2516fb75c8",
+    "brittle": "3.18.0",
+    "fastify": "5.12.5",
+    "hyperdht": "6.34.1",
+    "standard": "17.1.2"
+  }
+}

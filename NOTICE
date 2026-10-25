@@ -1,0 +1,15 @@
+c2pool MDK Worker
+Copyright 2026 frstrtr
+
+This product is a Worker for the Tether Mining Development Kit (MDK),
+https://github.com/tetherto/mdk, Copyright Tether and contributors, licensed under
+the Apache License, Version 2.0. It follows the package layout of the MDK Ocean and
+F2Pool workers and of foundry-mdk-worker (Foundry Digital LLC, Apache-2.0) and
+luxor-mdk-worker (Luxor Technology Corporation, Apache-2.0). Files adapted from
+those projects:
+  src/mdk.js                         adapted from foundry-mdk-worker src/mdk.js
+  src/client.js, src/poller.js       caching pattern adapted from luxor-mdk-worker src/client.js
+  mdk-contract.json                  health/alert/error entries adapted from
+                                     backend/workers/minerpools/ocean/plugin/mdk-contract.json
+The worker runs on MDK WorkerRuntimeV2, consumed unmodified as the @tetherto/mdk
+git dependency. c2pool itself (https://github.com/frstrtr/c2pool) is not included.
