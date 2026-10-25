@@ -205,12 +205,15 @@ are not included; see `pending_payout_merged`.
 | `alert.hashrate_low` | `hashrateFloor` is set and `hashrate` is below it on this poll and the previous successful one. |
 | `alert.workers_stalled` | At least one scope worker is `stalled`; `detail.stalled_workers` names them. |
 | `alert.no_recent_shares` | Scope workers are connected, none is `hashing`, and every connection is older than `noShareAlertMs`. |
+| `alert.data_unavailable` | The node answered, but an input one of the rules above needs (readiness, peers, coin P2P state, node role, or on a mining node the scope's workers and hashrate) is missing or malformed, so that rule could not be evaluated. `detail.unavailable` names the inputs. |
 
 `detail` carries the numbers the rules used, including both hashrate
 estimators (`stratum_hashrate` and the node's `local_hashps`, a few percent
 apart), and `notes`: the node's warnings, a projected block value (no live
 template, subsidy only), a template older than 3 block periods, and any rule
-that could not be evaluated. It never echoes the device config.
+that could not be evaluated, with its `ERR_C2POOL_DATA` message. A rule that
+could not be evaluated never leaves the status at `OK`. `detail` never echoes
+the device config.
 
 - If `alert.pool_unreachable`, check that the c2pool process is running and that `nodeUrl` points at its web port (default 8080).
 - If `alert.sharechain_not_synced`, the node is downloading or verifying the sharechain or its coin headers; wait, then check `/web/sync_status` and `/api/node_topology` on the node.
@@ -218,6 +221,7 @@ that could not be evaluated. It never echoes the device config.
 - If `alert.hashrate_low`, compare with the rigs' own dashboards first; a few rigs on a high share difficulty are noisy over minutes.
 - If `alert.workers_stalled`, check the listed rigs and their network path.
 - If `alert.no_recent_shares`, check the stratum username (`ADDRESS.worker` with a valid payout address for the coin) and the rigs' difficulty settings.
+- If `alert.data_unavailable`, the node reports a shape this worker does not know for the input named in `detail.unavailable`; check the node version and the message in `detail.notes`.
 
 ### Errors
 

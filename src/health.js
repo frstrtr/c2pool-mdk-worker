@@ -11,7 +11,8 @@ const { STALE_POLLS, MAX_NOTES, MAX_WORKER_ROWS } = require('./constants')
  *
  * `detail` carries the numbers each rule used and the names of stalled
  * workers; it never echoes the config. A rule whose input failed to parse is
- * skipped and says so in `detail.notes`.
+ * skipped and says so in `detail.notes`; the status is then not OK:
+ * alert.data_unavailable fires and `detail.unavailable` names the inputs.
  *
  * @returns {{ status: 'OK'|'DEGRADED', alerts: string[], detail: object }}
  */
@@ -19,6 +20,7 @@ function evaluate (snapshot, previous, config) {
   const alerts = []
   const notes = []
   const detail = {}
+  const unavailable = []
   const { values, facts } = snapshot
 
   const value = (source, name, rule) => {
@@ -29,10 +31,16 @@ function evaluate (snapshot, previous, config) {
     }
     return v
   }
+  // An input an alert rule cannot do without: if it failed to parse, the
+  // rule was not evaluated, so the node cannot be reported OK.
+  const required = (source, name, rule) => {
+    if (source[name] instanceof Error) unavailable.push(name)
+    return value(source, name, rule)
+  }
 
   // alert.sharechain_not_synced: the node's own readiness gate, or the coin
   // header follower behind, when the build reports it.
-  const ready = value(facts, 'sync_ready', 'alert.sharechain_not_synced')
+  const ready = required(facts, 'sync_ready', 'alert.sharechain_not_synced')
   const coinSynced = value(facts, 'coin_chain_synced', 'alert.sharechain_not_synced')
   detail.sync_ready = ready ?? null
   detail.coin_chain_synced = coinSynced ?? null
@@ -40,17 +48,17 @@ function evaluate (snapshot, previous, config) {
 
   // alert.no_peers: no sharechain peers, so shares cannot propagate; or the
   // embedded coin P2P client (DASH build) is not connected.
-  const peers = value(facts, 'peers', 'alert.no_peers')
-  const p2p = value(facts, 'coin_p2p_state', 'alert.no_peers')
+  const peers = required(facts, 'peers', 'alert.no_peers')
+  const p2p = required(facts, 'coin_p2p_state', 'alert.no_peers')
   detail.peers = peers ?? null
   if (typeof p2p === 'string') detail.coin_p2p_state = p2p
   if (peers === 0 || (typeof p2p === 'string' && p2p !== 'connected')) alerts.push('alert.no_peers')
 
-  const relay = value(facts, 'relay', 'local miner rules')
+  const relay = required(facts, 'relay', 'local miner rules')
   if (relay === true) {
     notes.push('node role is relay: no stratum acceptor, local miner rules not evaluated')
   } else if (relay === false) {
-    localMinerRules({ values, facts, previous, config, value, alerts, detail })
+    localMinerRules({ values, facts, previous, config, value, required, alerts, detail })
   }
 
   detail.local_hashps = value(facts, 'local_hashps', 'detail.local_hashps') ?? null
@@ -69,16 +77,20 @@ function evaluate (snapshot, previous, config) {
     notes.push(`api/node_topology unavailable (${facts.topology_error}); coin chain sync not checked`)
   }
 
+  if (unavailable.length) {
+    alerts.push('alert.data_unavailable')
+    detail.unavailable = unavailable
+  }
   detail.notes = notes.slice(0, MAX_NOTES)
   return { status: alerts.length ? 'DEGRADED' : 'OK', alerts, detail }
 }
 
-function localMinerRules ({ values, facts, previous, config, value, alerts, detail }) {
-  const hashrate = value(values, 'hashrate', 'alert.hashrate_low')
+function localMinerRules ({ values, facts, previous, config, value, required, alerts, detail }) {
+  const hashrate = required(values, 'hashrate', 'alert.hashrate_low')
   const online = value(values, 'workers_online', 'alert.no_recent_shares')
   const stalled = value(values, 'workers_stalled', 'alert.workers_stalled')
   const standby = value(values, 'workers_standby', 'detail.workers_standby')
-  const scoped = value(facts, 'scoped', 'alert.no_recent_shares')
+  const scoped = required(facts, 'scoped', 'alert.no_recent_shares')
 
   detail.hashrate = hashrate ?? null
   detail.workers_online = online ?? null

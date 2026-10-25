@@ -123,15 +123,42 @@ test('a relay node skips the local miner rules', async t => {
   t.absent('hashrate' in health.detail)
 })
 
-test('a rule whose input is malformed is skipped and says so', async t => {
+test('a rule whose input is malformed is skipped, says so, and the node is not OK', async t => {
   const patch = (route, body) => {
     if (route === '/web/sync_status') body.ready = 'yes'
     return body
   }
   const { health } = await healthOf('dash', {}, { patch })
-  t.is(health.status, 'OK')
+  t.is(health.status, 'DEGRADED')
+  t.alike(health.alerts, ['alert.data_unavailable'])
+  t.alike(health.detail.unavailable, ['sync_ready'])
   t.is(health.detail.sync_ready, null)
   t.ok(health.detail.notes.some(n => n.startsWith('alert.sharechain_not_synced not evaluated: ERR_C2POOL_DATA web/sync_status.ready')))
+})
+
+test('alert.data_unavailable for each input an alert rule needs', async t => {
+  const cases = [
+    ['/local_stats', body => { body.peers = 'three' }, ['peers']],
+    ['/local_stats', body => { body.coin_p2p = { state: 1 } }, ['coin_p2p_state']],
+    ['/local_stats', body => { body.node_role = 7 }, ['relay']],
+    ['/stratum_stats', body => { Object.values(body.workers)[0].silent = 'no' }, ['hashrate', 'scoped']]
+  ]
+  for (const [route, edit, names] of cases) {
+    const patch = (r, body) => {
+      if (r === route) edit(body)
+      return body
+    }
+    const { health } = await healthOf('dash', {}, { patch })
+    t.is(health.status, 'DEGRADED', names.join(','))
+    t.ok(health.alerts.includes('alert.data_unavailable'))
+    t.alike(health.detail.unavailable, names)
+  }
+})
+
+test('a relay node does not count its local miner channels as unavailable', async t => {
+  const { health } = await healthOf('dash', {}, { scenario: { relay: true } })
+  t.alike(health.alerts, [])
+  t.absent('unavailable' in health.detail)
 })
 
 test('a stale block template is noted', async t => {

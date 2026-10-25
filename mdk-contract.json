@@ -186,7 +186,7 @@
         "unit": "",
         "type": "object",
         "handler": "src/telemetry/health.js",
-        "description": "{ status, alerts, detail }. OFFLINE when the last poll of the node failed or the device config is invalid (alert.pool_unreachable; detail.error is the ERR_* code); DEGRADED when any other alert fires; OK otherwise. detail holds the numbers the rules used, stalled_workers (names only) and notes (node warnings, a projected or stale block template, rules that could not be evaluated). Never echoes the device config."
+        "description": "{ status, alerts, detail }. OFFLINE when the last poll of the node failed or the device config is invalid (alert.pool_unreachable; detail.error is the ERR_* code); DEGRADED when any other alert fires, including alert.data_unavailable when an input a rule needs is missing or malformed; OK otherwise. detail holds the numbers the rules used, stalled_workers (names only) and notes (node warnings, a projected or stale block template, rules that could not be evaluated). Never echoes the device config."
       }
     ],
     "commands": [],
@@ -205,7 +205,8 @@
         "alert.no_peers",
         "alert.hashrate_low",
         "alert.workers_stalled",
-        "alert.no_recent_shares"
+        "alert.no_recent_shares",
+        "alert.data_unavailable"
       ],
       "troubleshooting": [
         "If alert.pool_unreachable, check that the c2pool process is running and that nodeUrl points at its web port (default 8080); the worker only needs GET access to /local_stats and siblings.",
@@ -214,6 +215,7 @@
         "If alert.hashrate_low, compare with the rigs' own dashboards first; the node estimates hashrate from vardiff shares and a few rigs on a high share difficulty are noisy over minutes.",
         "If alert.workers_stalled, the listed workers were submitting shares on this node and stopped; check the rig or its network path. A worker in standby is not a fault: it is a failover connection that never hashed here.",
         "If alert.no_recent_shares, rigs are connected but nothing is accepted; check the stratum username (ADDRESS.worker, a valid payout address for this coin) and the rig's difficulty settings.",
+        "If alert.data_unavailable, the node answered but a field one of the health rules needs is missing or malformed, so that rule was not evaluated; health.detail.unavailable names the input and health.detail.notes carries the ERR_C2POOL_DATA message. The node build may report a shape this worker does not know; check the node version.",
         "estimated_earnings is an expectation (expected blocks per day x projected coinbase share), not a settlement; read expected_blocks_per_day before acting on it."
       ]
     },
