@@ -1,0 +1,17 @@
+{
+  "block_period": 600,
+  "coins": [
+    {
+      "name": "Bitcoin BIP-110",
+      "primary": true,
+      "symbol": "BIP110"
+    }
+  ],
+  "embedded": true,
+  "explorer_enabled": true,
+  "has_rpc": false,
+  "has_treasury": false,
+  "name": "Bitcoin BIP-110",
+  "share_version": 36,
+  "symbol": "BIP110"
+}

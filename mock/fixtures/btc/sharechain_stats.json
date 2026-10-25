@@ -1,0 +1,15 @@
+{
+  "chain_height": 30,
+  "chain_length": 8640,
+  "dead_shares": 0,
+  "fork_count": 1,
+  "orphan_shares": 0,
+  "shares_by_desired_version": {
+    "36": 30
+  },
+  "shares_by_version": {
+    "36": 30
+  },
+  "total_shares": 30,
+  "verified_count": 30
+}

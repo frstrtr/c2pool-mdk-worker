@@ -1,0 +1,28 @@
+{
+  "coin": "BTC",
+  "computed_at": 1792897120,
+  "merged_chains": [],
+  "merged_totals": {},
+  "miners": [
+    {
+      "address": "bc1qexample3qqqqqqqqqqqqqqqqqqqqqqqqqqqqqq",
+      "amount": 3.12185282,
+      "desired_version": 36,
+      "last_share_at": 1788400025,
+      "merged": [],
+      "pct": 0.9989929023999999,
+      "shares_in_window": 30,
+      "version": 36
+    },
+    {
+      "address": "3EXAMPLE2xxxxxxxxxxxxxxxxxxxxxxxxx",
+      "amount": 0.00314718,
+      "merged": [],
+      "pct": 0.0010070976
+    }
+  ],
+  "schema_version": "1.0",
+  "tip": "0000000007635da1",
+  "total_primary": 3.125,
+  "window_size": 30
+}

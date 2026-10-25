@@ -1,0 +1,17 @@
+{
+  "current_height": 30,
+  "last_block": 0,
+  "last_block_ts": null,
+  "local_workers": 0,
+  "min_difficulty": null,
+  "network_block_difficulty": 5943717411.5921955,
+  "network_hashrate": 1.7018714599636166e+17,
+  "pool_hash_rate": 321683760.0,
+  "pool_nonstale_hash_rate": 321683760.0,
+  "pool_stale_prop": 0.0,
+  "shares_in_chain": 30,
+  "status": "operational",
+  "unique_miners": 0,
+  "unique_miners_scope": "sharechain-payout-addresses-pool-wide",
+  "uptime_seconds": 470253
+}

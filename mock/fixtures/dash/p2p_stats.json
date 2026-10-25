@@ -1,0 +1,102 @@
+{
+  "messages": {
+    "addrme": {
+      "in": 17,
+      "out": 17
+    },
+    "addrs": {
+      "in": 40872,
+      "out": 41286
+    },
+    "alert": {
+      "in": 0,
+      "out": 0
+    },
+    "alertack": {
+      "in": 0,
+      "out": 0
+    },
+    "bestblock": {
+      "in": 0,
+      "out": 0
+    },
+    "forget_tx": {
+      "in": 0,
+      "out": 0
+    },
+    "getaddrs": {
+      "in": 8277,
+      "out": 8256
+    },
+    "have_tx": {
+      "in": 5598,
+      "out": 17675
+    },
+    "losing_tx": {
+      "in": 1001,
+      "out": 3030
+    },
+    "ping": {
+      "in": 8235,
+      "out": 8243
+    },
+    "pong": {
+      "in": 0,
+      "out": 0
+    },
+    "remember_tx": {
+      "in": 6,
+      "out": 15
+    },
+    "sharereply": {
+      "in": 45,
+      "out": 51
+    },
+    "sharereq": {
+      "in": 51,
+      "out": 45
+    },
+    "shares": {
+      "in": 24606,
+      "out": 25064
+    },
+    "tx_inject": {
+      "in": 0,
+      "out": 0
+    },
+    "unknown": {
+      "in": 0,
+      "out": 0
+    },
+    "verack": {
+      "in": 0,
+      "out": 0
+    },
+    "version": {
+      "in": 17962,
+      "out": 18042
+    }
+  },
+  "sharechain_timestamps": {
+    "clip_upper_bound": 39,
+    "delta_samples": 100,
+    "delta_saturated": 24,
+    "saturation_fraction": 0.24,
+    "tip_embedded_timestamp": 1792897050,
+    "tip_lag_seconds": 2,
+    "updated_at": 1792897052
+  },
+  "totals": {
+    "in": 106670,
+    "out": 121724
+  },
+  "trace_enabled": false,
+  "txpool": {
+    "have_tx_adverts_sent": 17675,
+    "known_txs_order_size": null,
+    "known_txs_size": 431,
+    "last_have_tx_advert_size": 2,
+    "last_losing_tx_advert_size": 9,
+    "updated_at": 1792897047
+  }
+}

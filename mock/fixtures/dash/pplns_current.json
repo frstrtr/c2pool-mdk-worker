@@ -1,0 +1,29 @@
+{
+  "coin": "DASH",
+  "computed_at": 1792897037,
+  "merged_chains": [],
+  "merged_totals": {},
+  "miners": [
+    {
+      "address": "XEXAMPLE1xxxxxxxxxxxxxxxxxxxxxxxxx",
+      "amount": 0.41095312,
+      "desired_version": 36,
+      "hashrate_hps": 1240893719563558.8,
+      "last_share_at": 1792897005,
+      "merged": [],
+      "pct": 0.9999999756663248,
+      "shares_in_window": 4320,
+      "version": 36
+    },
+    {
+      "address": "XEXAMPLE2xxxxxxxxxxxxxxxxxxxxxxxxx",
+      "amount": 1e-08,
+      "merged": [],
+      "pct": 2.4333675229581534e-08
+    }
+  ],
+  "schema_version": "1.0",
+  "tip": "00000000000049f2",
+  "total_primary": 0.41095313,
+  "window_size": 8787
+}

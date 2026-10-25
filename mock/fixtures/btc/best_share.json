@@ -1,0 +1,28 @@
+{
+  "all_time": {
+    "difficulty": 30.0,
+    "hash": "",
+    "miner": "0000000000000000000000000000000000000001",
+    "pct_of_block": 5.047346285590593e-07,
+    "timestamp": 1788459515
+  },
+  "has_best_share": true,
+  "median_pct": 0.0,
+  "network_difficulty": 5943717411.5921955,
+  "round": {
+    "difficulty": 0.0,
+    "hash": "",
+    "miner": "",
+    "pct_of_block": 0.0,
+    "started": 0,
+    "timestamp": 0
+  },
+  "session": {
+    "difficulty": 0.0,
+    "hash": "",
+    "miner": "",
+    "pct_of_block": 0.0,
+    "started": 21238,
+    "timestamp": 0
+  }
+}

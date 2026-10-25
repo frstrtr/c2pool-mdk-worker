@@ -1,0 +1,21 @@
+{
+  "current_height": 8772,
+  "last_block": 2560808,
+  "last_block_ts": 1792873777,
+  "local_workers": 25,
+  "min_difficulty": 5430.8923811498835,
+  "network_block_difficulty": 154979336.73131877,
+  "network_hashrate": 4437541218778571.0,
+  "pool_hash_rate": 34976790374428.0,
+  "pool_nonstale_hash_rate": 34976790374428.0,
+  "pool_stale_prop": 0.0,
+  "shares_in_chain": 4320,
+  "status": "operational",
+  "unique_miners": 1,
+  "unique_miners_scope": "sharechain-payout-addresses-pool-wide",
+  "uptime_seconds": 164678,
+  "v36_active": true,
+  "v36_percentage": 100.0,
+  "v36native": 4320,
+  "v36signaling": 0
+}

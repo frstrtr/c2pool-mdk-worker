@@ -1,0 +1,548 @@
+{
+  "pool": {
+    "connections": 25,
+    "connections_active": 25,
+    "connections_silent": 0,
+    "hashrate": 46956476583553.71,
+    "ip_connections": {
+      "203.0.113.5": 25
+    },
+    "ip_workers": {
+      "203.0.113.5": 25
+    },
+    "submission_rate": 0.3453949962092494,
+    "total_accepted": 56941,
+    "total_rejected": 6,
+    "total_stale": 0,
+    "unique_addresses": 1,
+    "uptime": 164875.0,
+    "workers": 1
+  },
+  "workers": {
+    "XEXAMPLE1xxxxxxxxxxxxxxxxxxxxxxxxx.D1": {
+      "accepted": 2051,
+      "connected_seconds": 13920,
+      "connection_difficulties": [
+        4096.0
+      ],
+      "connections": 1,
+      "dead_hash_rate": 0.0,
+      "difficulty": 4096.0,
+      "first_seen": 1792883085,
+      "hash_rate": 1905820154811.7334,
+      "last_seen": 1792897005,
+      "rejected": 0,
+      "remote_endpoint": "203.0.113.5:9787",
+      "rtt_ms": 24.909,
+      "shares": 2051,
+      "silent": false,
+      "silent_seconds": 0,
+      "silent_threshold_seconds": 900,
+      "stale": 0
+    },
+    "XEXAMPLE1xxxxxxxxxxxxxxxxxxxxxxxxx.D10": {
+      "accepted": 2039,
+      "connected_seconds": 13927,
+      "connection_difficulties": [
+        4096.0
+      ],
+      "connections": 1,
+      "dead_hash_rate": 0.0,
+      "difficulty": 4096.0,
+      "first_seen": 1792883078,
+      "hash_rate": 2404265426070.1865,
+      "last_seen": 1792897005,
+      "rejected": 0,
+      "remote_endpoint": "203.0.113.5:10676",
+      "rtt_ms": 19.459,
+      "shares": 2039,
+      "silent": false,
+      "silent_seconds": 0,
+      "silent_threshold_seconds": 900,
+      "stale": 0
+    },
+    "XEXAMPLE1xxxxxxxxxxxxxxxxxxxxxxxxx.D11": {
+      "accepted": 1994,
+      "connected_seconds": 13926,
+      "connection_difficulties": [
+        4096.0
+      ],
+      "connections": 1,
+      "dead_hash_rate": 0.0,
+      "difficulty": 4096.0,
+      "first_seen": 1792883079,
+      "hash_rate": 1964460774959.7866,
+      "last_seen": 1792897005,
+      "rejected": 0,
+      "remote_endpoint": "203.0.113.5:9016",
+      "rtt_ms": 19.011,
+      "shares": 1994,
+      "silent": false,
+      "silent_seconds": 0,
+      "silent_threshold_seconds": 900,
+      "stale": 0
+    },
+    "XEXAMPLE1xxxxxxxxxxxxxxxxxxxxxxxxx.D12": {
+      "accepted": 2022,
+      "connected_seconds": 13916,
+      "connection_difficulties": [
+        4096.0
+      ],
+      "connections": 1,
+      "dead_hash_rate": 0.0,
+      "difficulty": 4096.0,
+      "first_seen": 1792883089,
+      "hash_rate": 1744558449404.5867,
+      "last_seen": 1792897005,
+      "rejected": 1,
+      "remote_endpoint": "203.0.113.5:10837",
+      "rtt_ms": 20.17,
+      "shares": 2022,
+      "silent": false,
+      "silent_seconds": 0,
+      "silent_threshold_seconds": 900,
+      "stale": 0
+    },
+    "XEXAMPLE1xxxxxxxxxxxxxxxxxxxxxxxxx.D13": {
+      "accepted": 2068,
+      "connected_seconds": 13917,
+      "connection_difficulties": [
+        4096.0
+      ],
+      "connections": 1,
+      "dead_hash_rate": 0.0,
+      "difficulty": 4096.0,
+      "first_seen": 1792883088,
+      "hash_rate": 1715238139330.56,
+      "last_seen": 1792897005,
+      "rejected": 0,
+      "remote_endpoint": "203.0.113.5:10802",
+      "rtt_ms": 18.805,
+      "shares": 2068,
+      "silent": false,
+      "silent_seconds": 0,
+      "silent_threshold_seconds": 900,
+      "stale": 0
+    },
+    "XEXAMPLE1xxxxxxxxxxxxxxxxxxxxxxxxx.D14": {
+      "accepted": 3066,
+      "connected_seconds": 20887,
+      "connection_difficulties": [
+        4096.0
+      ],
+      "connections": 1,
+      "dead_hash_rate": 0.0,
+      "difficulty": 4096.0,
+      "first_seen": 1792876118,
+      "hash_rate": 2169702945477.9734,
+      "last_seen": 1792897005,
+      "rejected": 0,
+      "remote_endpoint": "203.0.113.5:1190",
+      "rtt_ms": 19.169,
+      "shares": 3066,
+      "silent": false,
+      "silent_seconds": 0,
+      "silent_threshold_seconds": 900,
+      "stale": 0
+    },
+    "XEXAMPLE1xxxxxxxxxxxxxxxxxxxxxxxxx.D15": {
+      "accepted": 2043,
+      "connected_seconds": 13916,
+      "connection_difficulties": [
+        4096.0
+      ],
+      "connections": 1,
+      "dead_hash_rate": 0.0,
+      "difficulty": 4096.0,
+      "first_seen": 1792883089,
+      "hash_rate": 1671257674219.52,
+      "last_seen": 1792897005,
+      "rejected": 1,
+      "remote_endpoint": "203.0.113.5:10818",
+      "rtt_ms": 20.314,
+      "shares": 2043,
+      "silent": false,
+      "silent_seconds": 0,
+      "silent_threshold_seconds": 900,
+      "stale": 0
+    },
+    "XEXAMPLE1xxxxxxxxxxxxxxxxxxxxxxxxx.D16": {
+      "accepted": 2001,
+      "connected_seconds": 13923,
+      "connection_difficulties": [
+        4096.0
+      ],
+      "connections": 1,
+      "dead_hash_rate": 0.0,
+      "difficulty": 4096.0,
+      "first_seen": 1792883082,
+      "hash_rate": 1729898294367.5732,
+      "last_seen": 1792897005,
+      "rejected": 0,
+      "remote_endpoint": "203.0.113.5:9651",
+      "rtt_ms": 19.622,
+      "shares": 2001,
+      "silent": false,
+      "silent_seconds": 0,
+      "silent_threshold_seconds": 900,
+      "stale": 0
+    },
+    "XEXAMPLE1xxxxxxxxxxxxxxxxxxxxxxxxx.D17": {
+      "accepted": 2020,
+      "connected_seconds": 13922,
+      "connection_difficulties": [
+        4096.0
+      ],
+      "connections": 1,
+      "dead_hash_rate": 0.0,
+      "difficulty": 4096.0,
+      "first_seen": 1792883083,
+      "hash_rate": 1715238139330.56,
+      "last_seen": 1792897005,
+      "rejected": 0,
+      "remote_endpoint": "203.0.113.5:10743",
+      "rtt_ms": 19.705,
+      "shares": 2020,
+      "silent": false,
+      "silent_seconds": 0,
+      "silent_threshold_seconds": 900,
+      "stale": 0
+    },
+    "XEXAMPLE1xxxxxxxxxxxxxxxxxxxxxxxxx.D18": {
+      "accepted": 2015,
+      "connected_seconds": 13936,
+      "connection_difficulties": [
+        4096.0
+      ],
+      "connections": 1,
+      "dead_hash_rate": 0.0,
+      "difficulty": 4096.0,
+      "first_seen": 1792883069,
+      "hash_rate": 2272324030737.067,
+      "last_seen": 1792897005,
+      "rejected": 0,
+      "remote_endpoint": "203.0.113.5:9012",
+      "rtt_ms": 19.787,
+      "shares": 2015,
+      "silent": false,
+      "silent_seconds": 0,
+      "silent_threshold_seconds": 900,
+      "stale": 0
+    },
+    "XEXAMPLE1xxxxxxxxxxxxxxxxxxxxxxxxx.D2": {
+      "accepted": 2958,
+      "connected_seconds": 20888,
+      "connection_difficulties": [
+        2048.0
+      ],
+      "connections": 1,
+      "dead_hash_rate": 0.0,
+      "difficulty": 2048.0,
+      "first_seen": 1792876117,
+      "hash_rate": 1612617054071.4666,
+      "last_seen": 1792897005,
+      "rejected": 0,
+      "remote_endpoint": "203.0.113.5:1734",
+      "rtt_ms": 19.298,
+      "shares": 2958,
+      "silent": false,
+      "silent_seconds": 0,
+      "silent_threshold_seconds": 900,
+      "stale": 0
+    },
+    "XEXAMPLE1xxxxxxxxxxxxxxxxxxxxxxxxx.D20": {
+      "accepted": 1982,
+      "connected_seconds": 13919,
+      "connection_difficulties": [
+        4096.0
+      ],
+      "connections": 1,
+      "dead_hash_rate": 0.0,
+      "difficulty": 4096.0,
+      "first_seen": 1792883086,
+      "hash_rate": 1935140464885.76,
+      "last_seen": 1792897005,
+      "rejected": 1,
+      "remote_endpoint": "203.0.113.5:10785",
+      "rtt_ms": 19.467,
+      "shares": 1982,
+      "silent": false,
+      "silent_seconds": 0,
+      "silent_threshold_seconds": 900,
+      "stale": 0
+    },
+    "XEXAMPLE1xxxxxxxxxxxxxxxxxxxxxxxxx.D21": {
+      "accepted": 3037,
+      "connected_seconds": 20887,
+      "connection_difficulties": [
+        4096.0
+      ],
+      "connections": 1,
+      "dead_hash_rate": 0.0,
+      "difficulty": 4096.0,
+      "first_seen": 1792876118,
+      "hash_rate": 1905820154811.7334,
+      "last_seen": 1792897005,
+      "rejected": 1,
+      "remote_endpoint": "203.0.113.5:1746",
+      "rtt_ms": 19.806,
+      "shares": 3037,
+      "silent": false,
+      "silent_seconds": 0,
+      "silent_threshold_seconds": 900,
+      "stale": 0
+    },
+    "XEXAMPLE1xxxxxxxxxxxxxxxxxxxxxxxxx.D22": {
+      "accepted": 3066,
+      "connected_seconds": 20880,
+      "connection_difficulties": [
+        4096.0
+      ],
+      "connections": 1,
+      "dead_hash_rate": 0.0,
+      "difficulty": 4096.0,
+      "first_seen": 1792876125,
+      "hash_rate": 2067081860218.88,
+      "last_seen": 1792897005,
+      "rejected": 0,
+      "remote_endpoint": "203.0.113.5:1821",
+      "rtt_ms": 19.296,
+      "shares": 3066,
+      "silent": false,
+      "silent_seconds": 0,
+      "silent_threshold_seconds": 900,
+      "stale": 0
+    },
+    "XEXAMPLE1xxxxxxxxxxxxxxxxxxxxxxxxx.D23": {
+      "accepted": 2005,
+      "connected_seconds": 13915,
+      "connection_difficulties": [
+        4096.0
+      ],
+      "connections": 1,
+      "dead_hash_rate": 0.0,
+      "difficulty": 4096.0,
+      "first_seen": 1792883090,
+      "hash_rate": 1891159999774.72,
+      "last_seen": 1792897005,
+      "rejected": 0,
+      "remote_endpoint": "203.0.113.5:9513",
+      "rtt_ms": 20.085,
+      "shares": 2005,
+      "silent": false,
+      "silent_seconds": 0,
+      "silent_threshold_seconds": 900,
+      "stale": 0
+    },
+    "XEXAMPLE1xxxxxxxxxxxxxxxxxxxxxxxxx.D24": {
+      "accepted": 2089,
+      "connected_seconds": 13936,
+      "connection_difficulties": [
+        2048.0
+      ],
+      "connections": 1,
+      "dead_hash_rate": 0.0,
+      "difficulty": 2048.0,
+      "first_seen": 1792883069,
+      "hash_rate": 1583296743997.44,
+      "last_seen": 1792897005,
+      "rejected": 1,
+      "remote_endpoint": "203.0.113.5:10552",
+      "rtt_ms": 20.284,
+      "shares": 2089,
+      "silent": false,
+      "silent_seconds": 0,
+      "silent_threshold_seconds": 900,
+      "stale": 0
+    },
+    "XEXAMPLE1xxxxxxxxxxxxxxxxxxxxxxxxx.D25": {
+      "accepted": 2070,
+      "connected_seconds": 13916,
+      "connection_difficulties": [
+        2048.0
+      ],
+      "connections": 1,
+      "dead_hash_rate": 0.0,
+      "difficulty": 2048.0,
+      "first_seen": 1792883089,
+      "hash_rate": 1773878759478.6133,
+      "last_seen": 1792897005,
+      "rejected": 0,
+      "remote_endpoint": "203.0.113.5:9094",
+      "rtt_ms": 20.408,
+      "shares": 2070,
+      "silent": false,
+      "silent_seconds": 0,
+      "silent_threshold_seconds": 900,
+      "stale": 0
+    },
+    "XEXAMPLE1xxxxxxxxxxxxxxxxxxxxxxxxx.D26": {
+      "accepted": 2037,
+      "connected_seconds": 13926,
+      "connection_difficulties": [
+        4096.0
+      ],
+      "connections": 1,
+      "dead_hash_rate": 0.0,
+      "difficulty": 4096.0,
+      "first_seen": 1792883079,
+      "hash_rate": 1700577984293.5466,
+      "last_seen": 1792897005,
+      "rejected": 0,
+      "remote_endpoint": "203.0.113.5:10410",
+      "rtt_ms": 19.231,
+      "shares": 2037,
+      "silent": false,
+      "silent_seconds": 0,
+      "silent_threshold_seconds": 900,
+      "stale": 0
+    },
+    "XEXAMPLE1xxxxxxxxxxxxxxxxxxxxxxxxx.D27": {
+      "accepted": 3107,
+      "connected_seconds": 20887,
+      "connection_difficulties": [
+        4096.0
+      ],
+      "connections": 1,
+      "dead_hash_rate": 0.0,
+      "difficulty": 4096.0,
+      "first_seen": 1792876118,
+      "hash_rate": 1759218604441.6,
+      "last_seen": 1792897005,
+      "rejected": 0,
+      "remote_endpoint": "203.0.113.5:1747",
+      "rtt_ms": 20.549,
+      "shares": 3107,
+      "silent": false,
+      "silent_seconds": 0,
+      "silent_threshold_seconds": 900,
+      "stale": 0
+    },
+    "XEXAMPLE1xxxxxxxxxxxxxxxxxxxxxxxxx.D3": {
+      "accepted": 2059,
+      "connected_seconds": 13920,
+      "connection_difficulties": [
+        2048.0
+      ],
+      "connections": 1,
+      "dead_hash_rate": 0.0,
+      "difficulty": 2048.0,
+      "first_seen": 1792883085,
+      "hash_rate": 1656597519182.5066,
+      "last_seen": 1792897005,
+      "rejected": 0,
+      "remote_endpoint": "203.0.113.5:10605",
+      "rtt_ms": 20.053,
+      "shares": 2059,
+      "silent": false,
+      "silent_seconds": 0,
+      "silent_threshold_seconds": 900,
+      "stale": 0
+    },
+    "XEXAMPLE1xxxxxxxxxxxxxxxxxxxxxxxxx.D4": {
+      "accepted": 2046,
+      "connected_seconds": 13915,
+      "connection_difficulties": [
+        2048.0
+      ],
+      "connections": 1,
+      "dead_hash_rate": 0.0,
+      "difficulty": 2048.0,
+      "first_seen": 1792883090,
+      "hash_rate": 1348734263405.2266,
+      "last_seen": 1792897005,
+      "rejected": 1,
+      "remote_endpoint": "203.0.113.5:9572",
+      "rtt_ms": 19.44,
+      "shares": 2046,
+      "silent": false,
+      "silent_seconds": 0,
+      "silent_threshold_seconds": 900,
+      "stale": 0
+    },
+    "XEXAMPLE1xxxxxxxxxxxxxxxxxxxxxxxxx.D6": {
+      "accepted": 2031,
+      "connected_seconds": 13928,
+      "connection_difficulties": [
+        4096.0
+      ],
+      "connections": 1,
+      "dead_hash_rate": 0.0,
+      "difficulty": 4096.0,
+      "first_seen": 1792883077,
+      "hash_rate": 1759218604441.6,
+      "last_seen": 1792897005,
+      "rejected": 0,
+      "remote_endpoint": "203.0.113.5:10665",
+      "rtt_ms": 22.018,
+      "shares": 2031,
+      "silent": false,
+      "silent_seconds": 0,
+      "silent_threshold_seconds": 900,
+      "stale": 0
+    },
+    "XEXAMPLE1xxxxxxxxxxxxxxxxxxxxxxxxx.D7": {
+      "accepted": 3088,
+      "connected_seconds": 20887,
+      "connection_difficulties": [
+        4096.0
+      ],
+      "connections": 1,
+      "dead_hash_rate": 0.0,
+      "difficulty": 4096.0,
+      "first_seen": 1792876118,
+      "hash_rate": 1920480309848.7466,
+      "last_seen": 1792897005,
+      "rejected": 0,
+      "remote_endpoint": "203.0.113.5:1744",
+      "rtt_ms": 20.104,
+      "shares": 3088,
+      "silent": false,
+      "silent_seconds": 0,
+      "silent_threshold_seconds": 900,
+      "stale": 0
+    },
+    "XEXAMPLE1xxxxxxxxxxxxxxxxxxxxxxxxx.D8": {
+      "accepted": 2016,
+      "connected_seconds": 13924,
+      "connection_difficulties": [
+        4096.0
+      ],
+      "connections": 1,
+      "dead_hash_rate": 0.0,
+      "difficulty": 4096.0,
+      "first_seen": 1792883081,
+      "hash_rate": 2140382635403.9468,
+      "last_seen": 1792897005,
+      "rejected": 0,
+      "remote_endpoint": "203.0.113.5:10712",
+      "rtt_ms": 19.686,
+      "shares": 2016,
+      "silent": false,
+      "silent_seconds": 0,
+      "silent_threshold_seconds": 900,
+      "stale": 0
+    },
+    "XEXAMPLE1xxxxxxxxxxxxxxxxxxxxxxxxx.D9": {
+      "accepted": 2031,
+      "connected_seconds": 13925,
+      "connection_difficulties": [
+        4096.0
+      ],
+      "connections": 1,
+      "dead_hash_rate": 0.0,
+      "difficulty": 4096.0,
+      "first_seen": 1792883080,
+      "hash_rate": 2609507596588.3735,
+      "last_seen": 1792897005,
+      "rejected": 0,
+      "remote_endpoint": "203.0.113.5:10696",
+      "rtt_ms": 19.939,
+      "shares": 2031,
+      "silent": false,
+      "silent_seconds": 0,
+      "silent_threshold_seconds": 900,
+      "stale": 0
+    }
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "all_time": {
+    "difficulty": 1324615900.069478,
+    "hash": "00000000000000033e0c4d49876b2fd0acf2f24db408e8b46a0f36335ab18f1f",
+    "miner": "XEXAMPLE1xxxxxxxxxxxxxxxxxxxxxxxxx",
+    "pct_of_block": 854.7048451793993,
+    "timestamp": 1792759879
+  },
+  "has_best_share": true,
+  "median_pct": 0.1301609005329684,
+  "network_difficulty": 154979336.73131877,
+  "round": {
+    "difficulty": 80390782.30644919,
+    "hash": "00000000000000356ce08a6d0f37a89ede49391ddd19bcd4d76601c22e195edd",
+    "miner": "XEXAMPLE1xxxxxxxxxxxxxxxxxxxxxxxxx",
+    "pct_of_block": 51.87193596383713,
+    "started": 1792873777,
+    "timestamp": 1792888794
+  },
+  "session": {
+    "difficulty": 1324615900.069478,
+    "hash": "00000000000000033e0c4d49876b2fd0acf2f24db408e8b46a0f36335ab18f1f",
+    "miner": "XEXAMPLE1xxxxxxxxxxxxxxxxxxxxxxxxx",
+    "pct_of_block": 854.7048451793993,
+    "started": 123361,
+    "timestamp": 1792759879
+  }
+}

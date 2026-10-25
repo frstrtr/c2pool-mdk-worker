@@ -1,0 +1,8 @@
+{
+  "external_ip": "203.0.113.1",
+  "network": "bip110",
+  "p2p_port": 9337,
+  "symbol": "BIP110",
+  "version": "c2pool/dev",
+  "worker_port": 9336
+}

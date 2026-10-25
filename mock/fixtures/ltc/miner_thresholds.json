@@ -1,0 +1,13 @@
+{
+  "block_subsidy_ltc": 6.25408567,
+  "chain_length": 400,
+  "dust_range": 30,
+  "min_hashrate_display": "14.18 MH/s",
+  "min_hashrate_dust": 14184833.129166666,
+  "min_hashrate_normal": 425544993.875,
+  "min_payout_ltc": 0.015635214175000002,
+  "pool_hashrate": 170217997550.0,
+  "pool_hashrate_display": "170.22 GH/s",
+  "share_period": 4,
+  "window_seconds": 1600.0
+}

@@ -1,0 +1,90 @@
+{
+  "address_warnings": [
+    {
+      "id": "v35_addr_limitation",
+      "text": "During V35 (current share format), shares cannot carry explicit merged mining addresses. Even if you configure LTC,DOGE in stratum, PPLNS will use ONLY auto-converted DOGE addresses derived from your LTC public key hash. Explicit address support activates after V36 transition.",
+      "title": "V35 Address Limitation (Current Phase)",
+      "urgency": "recommended"
+    }
+  ],
+  "advertised_protocol_version": 3601,
+  "authority_announcements": [],
+  "auto_ratchet": {
+    "activated_at": null,
+    "activated_height": null,
+    "confirmed_at": null,
+    "live_share_version": 36,
+    "persisted_state": "activated",
+    "state": "activated",
+    "v36_active": true
+  },
+  "chain_height": 8787,
+  "chain_length": 4320,
+  "chain_length_required": 4320,
+  "chain_maturity": 100.0,
+  "chain_ready": true,
+  "coin_p2p": {
+    "connected_peers": 8,
+    "dial_failures": 5,
+    "dialing": 0,
+    "handshaked_peers": 8,
+    "last_dial_failed_unix": 1792888064,
+    "last_dial_ok_unix": 1792888130,
+    "network_reachable": true,
+    "state": "connected"
+  },
+  "cold_min_protocol_version": 1700,
+  "current_share_name": "DashV36Share",
+  "current_share_type": 36,
+  "deepest_v36_position": 4320,
+  "desired_signal_floor_pct": 1.0,
+  "dominant_desired_version": 36,
+  "full_chain_versions": {
+    "36": {
+      "count": 4320,
+      "percentage": 100.0
+    }
+  },
+  "is_transitioning": false,
+  "lookbehind": 432,
+  "lowest_share_type": 36,
+  "message": "No version transition in progress",
+  "min_protocol_version": 3601,
+  "new_min_protocol_version": 3600,
+  "overall_total": 4320,
+  "overall_v36_share_pct": 100.0,
+  "overall_v36_shares": 4320,
+  "overall_v36_vote_pct": 100.0,
+  "overall_v36_votes": 4320,
+  "propagation_pct": 100.0,
+  "propagation_target": 4320,
+  "sampling_signaling": 100.0,
+  "sampling_window_size": 432,
+  "share_types": {
+    "36": {
+      "count": 4320,
+      "name": "DashV36Share",
+      "percentage": 100.0
+    }
+  },
+  "shares_to_window": 0,
+  "show_transition": false,
+  "status": "no_transition",
+  "target_version": 36,
+  "target_version_name": "DashV36Share",
+  "thresholds": {
+    "accept": 60,
+    "activate": 95
+  },
+  "time_to_window_seconds": 0.0,
+  "total_weight": 4320,
+  "transition_message": null,
+  "transition_progress": 100.0,
+  "v36_contiguous_from_tip": 4320,
+  "versions": {
+    "36": {
+      "percentage": 100.0,
+      "weight": 3.465241667845447e+17
+    }
+  }
+}

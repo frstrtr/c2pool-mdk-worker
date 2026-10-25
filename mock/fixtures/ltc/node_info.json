@@ -1,0 +1,8 @@
+{
+  "external_ip": "203.0.113.46",
+  "network": "litecoin",
+  "p2p_port": 9326,
+  "symbol": "LTC",
+  "version": "c2pool/0.1.0-alpha",
+  "worker_port": 9327
+}

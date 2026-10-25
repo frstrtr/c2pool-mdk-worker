@@ -1,0 +1,81 @@
+{
+  "auto_detected": false,
+  "coins": [
+    {
+      "arm": "EMBEDDED",
+      "coin": "DASH",
+      "embedded": true,
+      "header_height": 2560962,
+      "no_work_cause": "",
+      "no_work_reason": "",
+      "no_work_threshold": "n/a",
+      "no_work_value": "n/a",
+      "peers": 8,
+      "peers_distinct_addrs": 8,
+      "peers_handshaked": 8,
+      "peers_target": 8,
+      "primary": true,
+      "serve_gate_rollup": {
+        "observed_sec": 164899,
+        "off_embedded_sec": 2609,
+        "per_cause": [
+          {
+            "cause": "emit-qc-real-pose-unfolded",
+            "sec": 1346
+          },
+          {
+            "cause": "mn-payout-split-unprovable",
+            "sec": 575
+          },
+          {
+            "cause": "no-dmn-set",
+            "sec": 272
+          },
+          {
+            "cause": "not-populated",
+            "sec": 181
+          },
+          {
+            "cause": "creditpool-stale",
+            "sec": 165
+          },
+          {
+            "cause": "bestcl-stale",
+            "sec": 34
+          },
+          {
+            "cause": "qc-plan-underivable",
+            "sec": 29
+          },
+          {
+            "cause": "chain-not-synced",
+            "sec": 6
+          },
+          {
+            "cause": "tip-body-pending",
+            "sec": 1
+          }
+        ]
+      },
+      "serve_staleness": {
+        "d2": "armed",
+        "io_silent_s": 0,
+        "observed_age_s": 10,
+        "observed_height": 2560907,
+        "observed_src": "peer",
+        "serve_quiet_s": 0,
+        "served_age_s": 0,
+        "served_height": 2560963,
+        "skew_age_s": 0,
+        "stale": false,
+        "stale_age_s": 0,
+        "stale_check": "none"
+      },
+      "sync_percent": 100.0021476765849,
+      "synced": true,
+      "target_height": 2560907
+    }
+  ],
+  "node_symbol": "DASH",
+  "testnet": false
+}

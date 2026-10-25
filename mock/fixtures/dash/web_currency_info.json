@@ -1,0 +1,23 @@
+{
+  "address_explorer_url_prefix": "https://blockchair.com/dash/address/",
+  "block_explorer_url_prefix": "https://blockchair.com/dash/block/",
+  "block_period": 150,
+  "coins": [
+    {
+      "address_explorer_url_prefix": "https://blockchair.com/dash/address/",
+      "block_explorer_url_prefix": "https://blockchair.com/dash/block/",
+      "name": "Dash",
+      "primary": true,
+      "symbol": "DASH",
+      "tx_explorer_url_prefix": "https://blockchair.com/dash/transaction/"
+    }
+  ],
+  "embedded": false,
+  "explorer_enabled": true,
+  "has_rpc": false,
+  "has_treasury": true,
+  "name": "Dash",
+  "share_version": 16,
+  "symbol": "DASH",
+  "tx_explorer_url_prefix": "https://blockchair.com/dash/transaction/"
+}

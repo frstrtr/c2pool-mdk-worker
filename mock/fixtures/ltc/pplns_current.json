@@ -1,0 +1,86 @@
+{
+  "coin": "LTC",
+  "computed_at": 1792896967,
+  "merged_chains": [
+    "DOGE"
+  ],
+  "merged_totals": {
+    "DOGE": 9895.91847226
+  },
+  "miners": [
+    {
+      "address": "LEXAMPLE6xxxxxxxxxxxxxxxxxxxxxxxxx",
+      "amount": 6.18919239,
+      "desired_version": 36,
+      "last_share_at": 1792896938,
+      "merged": [
+        {
+          "address": "DEXAMPLE7xxxxxxxxxxxxxxxxxxxxxxxxx",
+          "amount": 9893.40760688,
+          "pct": 0.9997462726287571,
+          "source": "auto-convert",
+          "symbol": "DOGE"
+        }
+      ],
+      "pct": 0.98962385815863,
+      "shares_in_window": 8483,
+      "version": 36
+    },
+    {
+      "address": "LEXAMPLE4xxxxxxxxxxxxxxxxxxxxxxxxx",
+      "amount": 0.05440467,
+      "desired_version": 36,
+      "last_share_at": 1792896396,
+      "merged": [],
+      "pct": 0.008699060561477727,
+      "shares_in_window": 143,
+      "version": 36
+    },
+    {
+      "address": "LEXAMPLE5xxxxxxxxxxxxxxxxxxxxxxxxx",
+      "amount": 0.00641402,
+      "desired_version": 36,
+      "last_share_at": 1792870174,
+      "merged": [],
+      "pct": 0.0010255727756924061,
+      "shares_in_window": 12,
+      "version": 36
+    },
+    {
+      "address": "ltc1qexample10qqqqqqqqqqqqqqqqqqqqqqqqqqqqq",
+      "amount": 0.00407457,
+      "desired_version": 36,
+      "last_share_at": 1792890684,
+      "merged": [
+        {
+          "address": "DEXAMPLE11xxxxxxxxxxxxxxxxxxxxxxxx",
+          "amount": 2.51086536,
+          "pct": 0.00025372736922180567,
+          "source": "auto-convert",
+          "symbol": "DOGE"
+        }
+      ],
+      "pct": 0.0006515053062904398,
+      "shares_in_window": 2,
+      "version": 36
+    },
+    {
+      "address": "MEXAMPLE8xxxxxxxxxxxxxxxxxxxxxxxxx",
+      "amount": 2e-08,
+      "merged": [
+        {
+          "address": "AEXAMPLE9xxxxxxxxxxxxxxxxxxxxxxxxx",
+          "amount": 2e-08,
+          "pct": 2.0210352435767856e-12,
+          "source": "donation",
+          "symbol": "DOGE"
+        }
+      ],
+      "pct": 3.1979095035325927e-09
+    }
+  ],
+  "schema_version": "1.0",
+  "tip": "44740c3edb814030",
+  "total_primary": 6.254085669999999,
+  "window_size": 19444
+}

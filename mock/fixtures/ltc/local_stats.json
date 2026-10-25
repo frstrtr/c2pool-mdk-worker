@@ -1,0 +1,173 @@
+{
+  "attempts_to_block": 394011021052541568,
+  "attempts_to_merged_block": 152932160066498464,
+  "attempts_to_share": 2715581067095,
+  "aux_checks": 0,
+  "best_share": {
+    "all_time": {
+      "difficulty": 19158.27353019895,
+      "hash": "",
+      "miner": "0000000000000000000000000000000000000001",
+      "pct_of_block": 0.020883719963014517,
+      "timestamp": 1792391428
+    },
+    "network_difficulty": 91737839.63838163,
+    "round": {
+      "difficulty": 768.6780529073787,
+      "hash": "",
+      "miner": "0000000000000000000000000000000000000001",
+      "pct_of_block": 0.0008379072975092998,
+      "timestamp": 1792838978
+    },
+    "session": {
+      "difficulty": 768.6780529073787,
+      "hash": "",
+      "miner": "0000000000000000000000000000000000000001",
+      "pct_of_block": 0.0008379072975092998,
+      "timestamp": 1792838978
+    }
+  },
+  "block_value": 6.25445146,
+  "block_value_fee": 0.0,
+  "block_value_miner": 6.25445146,
+  "block_value_miner_gross": 6.25445146,
+  "block_value_miner_net": 6.25445146,
+  "block_value_payments": 6.25445146,
+  "donation_percent": 0.0,
+  "donation_proportion": 0.0,
+  "efficiency": 0.9997685185185186,
+  "efficiency_if_miner_perfect": 0.9997685185185186,
+  "fee": 0.0,
+  "fee_percent": 0.0,
+  "fee_units": "percent",
+  "local_hashps": 0.0,
+  "ltc_mempool": {
+    "admitted": 138135,
+    "last_block_hash": "20c1da8da41d87b61a74ca28e79b023dce944f0abc5b05a11e435a90ec0276ab",
+    "last_cleaned_ago_s": 136,
+    "mweb_fee_skipped_sat": 13960972,
+    "mweb_txs_seen": 3949,
+    "pegins_seen": 2046,
+    "pegouts_seen": 1219,
+    "rejected": {
+      "duplicate": 2112917,
+      "hogex": 0,
+      "malformed": 0,
+      "mweb_mixed": 0,
+      "mweb_only": 764,
+      "mweb_pegin": 2046,
+      "mweb_pegout": 1139,
+      "pegin_output_no_kernel": 0,
+      "vin_empty": 0,
+      "vout_empty": 0
+    },
+    "template_tx_dropped": 0
+  },
+  "ltc_mweb": {
+    "block_dups": 27,
+    "cmpct_dup": 5952,
+    "cmpct_fallback": {},
+    "cmpct_no_hogex": 0,
+    "cmpct_received": 6353,
+    "cmpct_rejected": {},
+    "cmpct_v3_with_mweb": 6353,
+    "config": {
+      "cmpct_hb_peers": 0,
+      "cmpct_v3": true,
+      "mweb_fetch_retry": true
+    },
+    "fetch_gave_up": 0,
+    "fetch_retries": 1,
+    "full_blocks_received": 429,
+    "state_kernels": 0,
+    "state_source": {
+      "bootstrap": 0,
+      "cmpct_v3_blocktxn": 83,
+      "cmpct_v3_reconstructed": 315,
+      "full_block_broadcast": 0,
+      "full_block_targeted": 0
+    },
+    "window_count": 398,
+    "window_hist": {
+      "gt_60": 0,
+      "le_0.25": 336,
+      "le_0.5": 52,
+      "le_1": 7,
+      "le_10": 0,
+      "le_2": 3,
+      "le_30": 0,
+      "le_5": 0,
+      "le_60": 0
+    },
+    "window_last_ms": 0,
+    "window_open": false,
+    "window_unclosed": 1
+  },
+  "miner_dead_hash_rates": {},
+  "miner_hash_rates": {},
+  "miner_last_difficulties": {},
+  "mweb_degraded": false,
+  "mweb_hold_seconds": 25.928,
+  "mweb_refusals": 0,
+  "mweb_refusals_by_code": {},
+  "mweb_template_refusals": 128,
+  "my_hash_rates_in_last_hour": {
+    "actual": 0.0,
+    "nonstale": 0.0,
+    "note": "from stratum worker hashrates",
+    "rewarded": 0.0
+  },
+  "my_share_counts_in_last_hour": {
+    "doa_stale_shares": 0,
+    "orphan_stale_shares": 2,
+    "shares": 8640,
+    "stale_shares": 2,
+    "unstale_shares": 8638
+  },
+  "my_stale_proportions_in_last_hour": {
+    "dead_stale": 0.0,
+    "orphan_stale": 0.0002314814814814815,
+    "stale": 0.0002314814814814815
+  },
+  "node_fee": 0.0,
+  "node_fee_doge": 0.0,
+  "node_fee_ltc": 0.0,
+  "node_fee_merged": 0.0,
+  "node_fee_merged_symbol": "DOGE",
+  "node_role": "mining",
+  "peers": {
+    "incoming": 7,
+    "outgoing": 1
+  },
+  "protocol_version": 3600,
+  "shares": {
+    "dead": 0,
+    "orphan": 2,
+    "total": 8640
+  },
+  "stratum_sessions": {
+    "active": 0,
+    "hashing": 0,
+    "silent": 0,
+    "silent_floor_seconds": 900,
+    "stalled": 0,
+    "standby": 0,
+    "total": 0
+  },
+  "template_fee_outliers": 0,
+  "template_tx_check": "strict",
+  "template_tx_refusals": {
+    "by_code": {},
+    "total": 0
+  },
+  "uptime": 58248,
+  "v36_active": true,
+  "v36_percentage": 100.0,
+  "v36native": 8640,
+  "v36signaling": 0,
+  "version": "c2pool/0.1.0-alpha",
+  "warnings": [
+    "No miners connected \u2014 pool is idle"
+  ],
+  "workers_silent": []
+}

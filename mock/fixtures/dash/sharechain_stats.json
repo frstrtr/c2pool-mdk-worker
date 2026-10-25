@@ -1,0 +1,52 @@
+{
+  "advertised_protocol_version": 3601,
+  "average_difficulty": 201614.7305590691,
+  "chain_height": 8786,
+  "chain_length": 4320,
+  "chain_tip_hash": "000000000000160cabf2aa91c4746f29320c00ca46696242f20bd927835bb7cb",
+  "cold_min_protocol_version": 1700,
+  "dead_shares": 0,
+  "deepest_v36_position": 4320,
+  "fork_count": 5,
+  "heads": [
+    "000000000000160cabf2aa91c4746f29320c00ca46696242f20bd927835bb7cb",
+    "000000000000291030fb2d0883e771569f43b3676f21ccb942cfa6e3a2bf046a"
+  ],
+  "live_share_version": 36,
+  "local_gone_shares": 0,
+  "local_minted_shares": 8318,
+  "local_on_chain_shares": 8139,
+  "local_orphan_rate": 0.0211665664461816,
+  "local_orphan_shares": 176,
+  "local_pending_shares": 3,
+  "min_difficulty": 5561.953760264597,
+  "min_protocol_version": 3601,
+  "new_min_protocol_version": 3600,
+  "orphan_shares": 0,
+  "sampling_desired_version": {
+    "36": 3.4661242402193645e+17
+  },
+  "shares_by_desired_version": {
+    "36": 4320
+  },
+  "shares_by_miner": {
+    "0000000000000000000000000000000000000003": 4320
+  },
+  "shares_by_version": {
+    "36": 4320
+  },
+  "stored_shares": 8790,
+  "tails": [
+    "00000000000049244458dba7c196ee1392732f98f1bf20620a60ca2c99a66a92"
+  ],
+  "total_shares": 4320,
+  "v36_contiguous_from_tip": 4320,
+  "verified_count": 8790,
+  "verified_heads": [
+    "000000000000160cabf2aa91c4746f29320c00ca46696242f20bd927835bb7cb",
+    "000000000000291030fb2d0883e771569f43b3676f21ccb942cfa6e3a2bf046a"
+  ],
+  "verified_tails": [
+    "00000000000049244458dba7c196ee1392732f98f1bf20620a60ca2c99a66a92"
+  ]
+}

@@ -1,0 +1,26 @@
+[
+  {
+    "address": "203.0.113.2:46096",
+    "downtime": 0,
+    "incoming": true,
+    "uptime": 57123,
+    "version": "c2pool",
+    "web_port": 0
+  },
+  {
+    "address": "203.0.113.3:53640",
+    "downtime": 0,
+    "incoming": true,
+    "uptime": 79420,
+    "version": "c2pool",
+    "web_port": 0
+  },
+  {
+    "address": "203.0.113.4:36684",
+    "downtime": 0,
+    "incoming": true,
+    "uptime": 56408,
+    "version": "c2pool",
+    "web_port": 0
+  }
+]

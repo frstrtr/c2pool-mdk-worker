@@ -1,0 +1,167 @@
+{
+  "attempts_to_block": 665631182816785664,
+  "attempts_to_merged_block": 0,
+  "attempts_to_share": 866419799542317,
+  "best_share": {
+    "all_time": {
+      "difficulty": 1324615900.069478,
+      "hash": "00000000000000033e0c4d49876b2fd0acf2f24db408e8b46a0f36335ab18f1f",
+      "miner": "XEXAMPLE1xxxxxxxxxxxxxxxxxxxxxxxxx",
+      "pct_of_block": 854.7048451793993,
+      "timestamp": 1792759879
+    },
+    "network_difficulty": 154979336.73131877,
+    "round": {
+      "difficulty": 80390782.30644919,
+      "hash": "00000000000000356ce08a6d0f37a89ede49391ddd19bcd4d76601c22e195edd",
+      "miner": "XEXAMPLE1xxxxxxxxxxxxxxxxxxxxxxxxx",
+      "pct_of_block": 51.87193596383713,
+      "timestamp": 1792888794
+    },
+    "session": {
+      "difficulty": 1324615900.069478,
+      "hash": "00000000000000033e0c4d49876b2fd0acf2f24db408e8b46a0f36335ab18f1f",
+      "miner": "XEXAMPLE1xxxxxxxxxxxxxxxxxxxxxxxxx",
+      "pct_of_block": 854.7048451793993,
+      "timestamp": 1792759879
+    }
+  },
+  "block_value": 1.64378041,
+  "block_value_age_sec": 21,
+  "block_value_basis": "template",
+  "block_value_burn": 0.46231323,
+  "block_value_fee": 0.0,
+  "block_value_height": 2560960,
+  "block_value_miner": 0.4109451099999999,
+  "block_value_miner_gross": 0.4109451099999999,
+  "block_value_miner_net": 0.4109451099999999,
+  "block_value_payments": 1.2328353,
+  "coin_p2p": {
+    "connected_peers": 8,
+    "dial_failures": 5,
+    "dialing": 0,
+    "handshaked_peers": 8,
+    "last_dial_failed_unix": 1792888064,
+    "last_dial_ok_unix": 1792888130,
+    "network_reachable": true,
+    "state": "connected"
+  },
+  "donation_percent": 0.0,
+  "donation_proportion": 0.0,
+  "efficiency": 1.0,
+  "efficiency_if_miner_perfect": 1.0,
+  "fee": 0.0,
+  "fee_percent": 0.0,
+  "fee_units": "percent",
+  "local_hashps": 44420269762150.4,
+  "local_shares": {
+    "gone": 0,
+    "minted": 8304,
+    "on_chain": 8125,
+    "orphan": 176,
+    "orphan_rate": 0.021202264787375014,
+    "pending": 3
+  },
+  "miner_dead_hash_rates": {
+    "XEXAMPLE1xxxxxxxxxxxxxxxxxxxxxxxxx.D1": 0.0,
+    "XEXAMPLE1xxxxxxxxxxxxxxxxxxxxxxxxx.D10": 0.0,
+    "XEXAMPLE1xxxxxxxxxxxxxxxxxxxxxxxxx.D11": 0.0,
+    "XEXAMPLE1xxxxxxxxxxxxxxxxxxxxxxxxx.D12": 0.0,
+    "XEXAMPLE1xxxxxxxxxxxxxxxxxxxxxxxxx.D13": 0.0,
+    "XEXAMPLE1xxxxxxxxxxxxxxxxxxxxxxxxx.D14": 0.0,
+    "XEXAMPLE1xxxxxxxxxxxxxxxxxxxxxxxxx.D15": 0.0,
+    "XEXAMPLE1xxxxxxxxxxxxxxxxxxxxxxxxx.D16": 0.0,
+    "XEXAMPLE1xxxxxxxxxxxxxxxxxxxxxxxxx.D17": 0.0,
+    "XEXAMPLE1xxxxxxxxxxxxxxxxxxxxxxxxx.D18": 0.0,
+    "XEXAMPLE1xxxxxxxxxxxxxxxxxxxxxxxxx.D2": 0.0,
+    "XEXAMPLE1xxxxxxxxxxxxxxxxxxxxxxxxx.D20": 0.0,
+    "XEXAMPLE1xxxxxxxxxxxxxxxxxxxxxxxxx.D21": 0.0,
+    "XEXAMPLE1xxxxxxxxxxxxxxxxxxxxxxxxx.D22": 0.0,
+    "XEXAMPLE1xxxxxxxxxxxxxxxxxxxxxxxxx.D23": 0.0,
+    "XEXAMPLE1xxxxxxxxxxxxxxxxxxxxxxxxx.D24": 0.0,
+    "XEXAMPLE1xxxxxxxxxxxxxxxxxxxxxxxxx.D25": 0.0,
+    "XEXAMPLE1xxxxxxxxxxxxxxxxxxxxxxxxx.D26": 0.0,
+    "XEXAMPLE1xxxxxxxxxxxxxxxxxxxxxxxxx.D27": 0.0,
+    "XEXAMPLE1xxxxxxxxxxxxxxxxxxxxxxxxx.D3": 0.0,
+    "XEXAMPLE1xxxxxxxxxxxxxxxxxxxxxxxxx.D4": 0.0,
+    "XEXAMPLE1xxxxxxxxxxxxxxxxxxxxxxxxx.D6": 0.0,
+    "XEXAMPLE1xxxxxxxxxxxxxxxxxxxxxxxxx.D7": 0.0,
+    "XEXAMPLE1xxxxxxxxxxxxxxxxxxxxxxxxx.D8": 0.0,
+    "XEXAMPLE1xxxxxxxxxxxxxxxxxxxxxxxxx.D9": 0.0
+  },
+  "miner_hash_rates": {
+    "XEXAMPLE1xxxxxxxxxxxxxxxxxxxxxxxxx.D1": 1700577984293.5466,
+    "XEXAMPLE1xxxxxxxxxxxxxxxxxxxxxxxxx.D10": 2096402170292.9067,
+    "XEXAMPLE1xxxxxxxxxxxxxxxxxxxxxxxxx.D11": 1920480309848.7466,
+    "XEXAMPLE1xxxxxxxxxxxxxxxxxxxxxxxxx.D12": 1744558449404.5867,
+    "XEXAMPLE1xxxxxxxxxxxxxxxxxxxxxxxxx.D13": 1715238139330.56,
+    "XEXAMPLE1xxxxxxxxxxxxxxxxxxxxxxxxx.D14": 2052421705181.8667,
+    "XEXAMPLE1xxxxxxxxxxxxxxxxxxxxxxxxx.D15": 1715238139330.56,
+    "XEXAMPLE1xxxxxxxxxxxxxxxxxxxxxxxxx.D16": 1524656123849.3867,
+    "XEXAMPLE1xxxxxxxxxxxxxxxxxxxxxxxxx.D17": 1788538914515.6267,
+    "XEXAMPLE1xxxxxxxxxxxxxxxxxxxxxxxxx.D18": 2008441240070.8267,
+    "XEXAMPLE1xxxxxxxxxxxxxxxxxxxxxxxxx.D2": 1553976433923.4133,
+    "XEXAMPLE1xxxxxxxxxxxxxxxxxxxxxxxxx.D20": 1993781085033.8132,
+    "XEXAMPLE1xxxxxxxxxxxxxxxxxxxxxxxxx.D21": 1905820154811.7334,
+    "XEXAMPLE1xxxxxxxxxxxxxxxxxxxxxxxxx.D22": 1876499844737.7068,
+    "XEXAMPLE1xxxxxxxxxxxxxxxxxxxxxxxxx.D23": 1876499844737.7068,
+    "XEXAMPLE1xxxxxxxxxxxxxxxxxxxxxxxxx.D24": 2096402170292.9067,
+    "XEXAMPLE1xxxxxxxxxxxxxxxxxxxxxxxxx.D25": 1905820154811.7334,
+    "XEXAMPLE1xxxxxxxxxxxxxxxxxxxxxxxxx.D26": 1597956899034.4534,
+    "XEXAMPLE1xxxxxxxxxxxxxxxxxxxxxxxxx.D27": 1729898294367.5732,
+    "XEXAMPLE1xxxxxxxxxxxxxxxxxxxxxxxxx.D3": 1671257674219.52,
+    "XEXAMPLE1xxxxxxxxxxxxxxxxxxxxxxxxx.D4": 1407374883553.28,
+    "XEXAMPLE1xxxxxxxxxxxxxxxxxxxxxxxxx.D6": 1744558449404.5867,
+    "XEXAMPLE1xxxxxxxxxxxxxxxxxxxxxxxxx.D7": 1935140464885.76,
+    "XEXAMPLE1xxxxxxxxxxxxxxxxxxxxxxxxx.D8": 2081742015255.8933,
+    "XEXAMPLE1xxxxxxxxxxxxxxxxxxxxxxxxx.D9": 2492226356292.2666
+  },
+  "miner_last_difficulties": {
+    "XEXAMPLE1xxxxxxxxxxxxxxxxxxxxxxxxx": 2048.0
+  },
+  "my_hash_rates_in_last_hour": {
+    "actual": 46135507901480.96,
+    "nonstale": 46135507901480.96,
+    "note": "from stratum worker hashrates",
+    "rewarded": 46135507901480.96
+  },
+  "my_share_counts_in_last_hour": {
+    "doa_stale_shares": 0,
+    "orphan_stale_shares": 0,
+    "shares": 4320,
+    "stale_shares": 0,
+    "unstale_shares": 4320
+  },
+  "my_stale_proportions_in_last_hour": {
+    "dead_stale": 0.0,
+    "orphan_stale": 0.0,
+    "stale": 0.0
+  },
+  "node_fee": 0.0,
+  "node_fee_dash": 0.0,
+  "node_role": "mining",
+  "peers": {
+    "incoming": 3,
+    "outgoing": 0
+  },
+  "protocol_version": 1700,
+  "shares": {
+    "dead": 0,
+    "orphan": 0,
+    "total": 4320
+  },
+  "stratum_sessions": {
+    "active": 25,
+    "silent": 0,
+    "silent_floor_seconds": 900,
+    "total": 25
+  },
+  "uptime": 164675,
+  "v36_active": true,
+  "v36_percentage": 100.0,
+  "v36native": 4320,
+  "v36signaling": 0,
+  "version": "c2pool/0.1.0-alpha",
+  "warnings": [],
+  "workers_silent": []
+}

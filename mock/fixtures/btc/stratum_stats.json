@@ -1,0 +1,16 @@
+{
+  "pool": {
+    "connections": 0,
+    "hashrate": 0.0,
+    "ip_connections": {},
+    "ip_workers": {},
+    "submission_rate": 0.0,
+    "total_accepted": 0,
+    "total_rejected": 0,
+    "total_stale": 0,
+    "unique_addresses": 0,
+    "uptime": 470502.0,
+    "workers": 0
+  },
+  "workers": {}
+}

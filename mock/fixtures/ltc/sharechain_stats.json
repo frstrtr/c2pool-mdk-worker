@@ -1,0 +1,76 @@
+{
+  "average_difficulty": 632.2665057755798,
+  "chain_height": 44264,
+  "chain_length": 8640,
+  "chain_tip_hash": "7363aa31aad759c965e389ace79766119f1c7691b3b5b8ad79b71959728c7ac1",
+  "dead_shares": 0,
+  "deepest_v36_position": 8640,
+  "difficulty_trend": [],
+  "fork_count": 5,
+  "heads": [
+    "7363aa31aad759c965e389ace79766119f1c7691b3b5b8ad79b71959728c7ac1",
+    "440ab514af9805c0291f2fab6dd4a30f3dbb5db9bfda5657559513fae34897f1"
+  ],
+  "heaviest_fork_weight": 0.43923818991030883,
+  "min_difficulty": 19.67323380797649,
+  "my_share_hashes": [],
+  "orphan_shares": 2,
+  "pool_stale_prop": 0.0,
+  "sampling_desired_version": {
+    "36": 2406661769646443.0
+  },
+  "sampling_total": 864,
+  "shares_by_desired_version": {
+    "36": 8640
+  },
+  "shares_by_miner": {
+    "0000000000000000000000000000000000000001": 8483,
+    "0000000000000000000000000000000000000012": 12,
+    "0000000000000000000000000000000000000013": 143,
+    "0000000000000000000000000000000000000014": 2
+  },
+  "shares_by_version": {
+    "36": 8640
+  },
+  "tails": [
+    "a28aea5511e647bf74ecb883de2d7706c5fa57325da17a00ba3106f0bc195ebc",
+    "e6b9b5d6ced398679dac5564fdd5cc7656e78dd9a3e004c4e8df96ce08d4bb13",
+    "e8c24372da82850b2a79950f54cd9d41034e79cd155858b41a5531e5e60e5483"
+  ],
+  "timeline": [
+    {
+      "miner_distribution": {
+        "0000000000000000000000000000000000000001": 31
+      },
+      "share_count": 31,
+      "timestamp": 1792893936
+    },
+    {
+      "miner_distribution": {
+        "0000000000000000000000000000000000000001": 38
+      },
+      "share_count": 38,
+      "timestamp": 1792894536
+    },
+    {
+      "miner_distribution": {
+        "0000000000000000000000000000000000000001": 36
+      },
+      "share_count": 36,
+      "timestamp": 1792895136
+    }
+  ],
+  "total_shares": 44264,
+  "v36_contiguous_from_tip": 8640,
+  "verified_count": 30845,
+  "verified_heads": [
+    "7363aa31aad759c965e389ace79766119f1c7691b3b5b8ad79b71959728c7ac1",
+    "c4bf0d9c5723b5a00c4ae464a3338b7ed3f296d0ca8d7d3f6c1ad6c49bee3877"
+  ],
+  "verified_tails": [
+    "cfd9fec3987f7d7e541af25731669e5b8efa196a35289a468e7c980e233367f0",
+    "cbcd089b8e92b25a8066e0491da7bc91056f700f2fc6dac018a156ca75be0dc5",
+    "ab5b88e1b56c9fa64138da08fbc4671463ce06d0d4bc67ee5f5a55fa937fca3a",
+    "46970ede201eb61782cac960463abfe6268b39ecea2392bbb042ac5da8732751"
+  ]
+}

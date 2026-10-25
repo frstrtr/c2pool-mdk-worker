@@ -1,0 +1,8 @@
+{
+  "external_ip": "203.0.113.1",
+  "network": "dash",
+  "p2p_port": 8996,
+  "symbol": "DASH",
+  "version": "c2pool/0.1.0-alpha",
+  "worker_port": 7903
+}

@@ -1,0 +1,39 @@
+{
+  "address": "LEXAMPLE6xxxxxxxxxxxxxxxxxxxxxxxxx",
+  "amount": 6.1943953,
+  "hashrate_series": [
+    {
+      "hps": 0.0,
+      "t": 1792893757
+    },
+    {
+      "hps": 0.0,
+      "t": 1792893877
+    },
+    {
+      "hps": 0.0,
+      "t": 1792893997
+    },
+    {
+      "hps": 0.0,
+      "t": 1792894117
+    },
+    {
+      "hps": 0.0,
+      "t": 1792894237
+    }
+  ],
+  "in_window": true,
+  "merged": [
+    {
+      "address": "DEXAMPLE7xxxxxxxxxxxxxxxxxxxxxxxxx",
+      "amount": 9893.44450581,
+      "pct": 0.9997462749326134,
+      "source": "auto-convert",
+      "symbol": "DOGE"
+    }
+  ],
+  "pct": 0.9896548825373392,
+  "recent_shares": [],
+  "shares_total": 0
+}

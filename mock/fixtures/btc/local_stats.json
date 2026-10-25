@@ -1,0 +1,85 @@
+{
+  "attempts_to_block": 9223372036854775807,
+  "attempts_to_merged_block": 0,
+  "attempts_to_share": 4294967296,
+  "best_share": {
+    "all_time": {
+      "difficulty": 30.0,
+      "hash": "",
+      "miner": "0000000000000000000000000000000000000001",
+      "pct_of_block": 5.047346285590593e-07,
+      "timestamp": 1788459515
+    },
+    "network_difficulty": 5943717411.5921955,
+    "round": {
+      "difficulty": 0.0,
+      "hash": "",
+      "miner": "",
+      "pct_of_block": 0.0,
+      "timestamp": 0
+    },
+    "session": {
+      "difficulty": 0.0,
+      "hash": "",
+      "miner": "",
+      "pct_of_block": 0.0,
+      "timestamp": 0
+    }
+  },
+  "block_value": 3.125,
+  "block_value_age_sec": null,
+  "block_value_basis": "projected",
+  "block_value_fee": 0.0,
+  "block_value_height": 978060,
+  "block_value_miner": 3.125,
+  "block_value_miner_gross": 3.125,
+  "block_value_miner_net": 3.125,
+  "block_value_payments": 3.125,
+  "donation_percent": 0.0,
+  "donation_proportion": 0.0,
+  "efficiency": 1.0,
+  "efficiency_if_miner_perfect": 1.0,
+  "fee": 0.0,
+  "fee_percent": 0.0,
+  "fee_units": "percent",
+  "local_hashps": 0.0,
+  "miner_dead_hash_rates": {},
+  "miner_hash_rates": {},
+  "miner_last_difficulties": {},
+  "my_hash_rates_in_last_hour": {
+    "actual": 0.0,
+    "nonstale": 0.0,
+    "note": "from stratum worker hashrates",
+    "rewarded": 0.0
+  },
+  "my_share_counts_in_last_hour": {
+    "doa_stale_shares": 0,
+    "orphan_stale_shares": 0,
+    "shares": 30,
+    "stale_shares": 0,
+    "unstale_shares": 30
+  },
+  "my_stale_proportions_in_last_hour": {
+    "dead_stale": 0.0,
+    "orphan_stale": 0.0,
+    "stale": 0.0
+  },
+  "node_fee": 0.0,
+  "node_fee_ltc": 0.0,
+  "peers": {
+    "incoming": 0,
+    "outgoing": 0
+  },
+  "protocol_version": 3600,
+  "shares": {
+    "dead": 0,
+    "orphan": 0,
+    "total": 30
+  },
+  "uptime": 470249,
+  "version": "c2pool/dev",
+  "warnings": [
+    "No pool peers connected \u2014 share propagation disabled",
+    "No miners connected \u2014 pool is idle"
+  ]
+}

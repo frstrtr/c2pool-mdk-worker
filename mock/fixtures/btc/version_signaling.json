@@ -1,0 +1,64 @@
+{
+  "address_warnings": [],
+  "authority_announcements": [],
+  "auto_ratchet": {
+    "activated_at": null,
+    "activated_height": null,
+    "confirmed_at": null,
+    "live_share_version": 36,
+    "persisted_state": "voting",
+    "state": "voting",
+    "v36_active": true
+  },
+  "chain_height": 30,
+  "chain_length": 8640,
+  "chain_length_required": 8640,
+  "chain_maturity": 0.35,
+  "chain_ready": false,
+  "current_share_name": "MergedMiningShare",
+  "current_share_type": 36,
+  "deepest_v36_position": 0,
+  "desired_signal_floor_pct": 1.0,
+  "dominant_desired_version": 36,
+  "full_chain_versions": {
+    "36": {
+      "count": 30,
+      "percentage": 100.0
+    }
+  },
+  "is_transitioning": false,
+  "lookbehind": 30,
+  "lowest_share_type": 36,
+  "message": "No version transition in progress",
+  "overall_total": 30,
+  "overall_v36_share_pct": 100.0,
+  "overall_v36_shares": 30,
+  "overall_v36_vote_pct": 100.0,
+  "overall_v36_votes": 30,
+  "propagation_pct": 0.0,
+  "propagation_target": 8640,
+  "sampling_signaling": 0.0,
+  "sampling_window_size": 864,
+  "share_types": {
+    "36": {
+      "count": 30,
+      "name": "MergedMiningShare",
+      "percentage": 100.0
+    }
+  },
+  "shares_to_window": 8640,
+  "show_transition": false,
+  "status": "no_transition",
+  "target_version": 36,
+  "target_version_name": "MergedMiningShare",
+  "thresholds": {
+    "accept": 60,
+    "activate": 95
+  },
+  "time_to_window_seconds": 86400.0,
+  "total_weight": 30,
+  "transition_message": null,
+  "transition_progress": 100.0,
+  "v36_contiguous_from_tip": 0,
+  "versions": {}
+}

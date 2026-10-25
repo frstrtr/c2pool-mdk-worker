@@ -1,0 +1,24 @@
+{
+  "auto_detected": false,
+  "coins": [
+    {
+      "blake2b_height": 961640,
+      "broadcast_route": "p2p",
+      "coin": "BIP110",
+      "embedded": true,
+      "embedded_peers": 9,
+      "has_rpc": false,
+      "header_height": 978059,
+      "on_blake2b_chain": true,
+      "peer_tip_height": 0,
+      "peers": 9,
+      "primary": true,
+      "sync_pct": 0.0,
+      "sync_percent": 99.93889585421654,
+      "synced": false,
+      "synced_height": 978059,
+      "target_height": 978657
+    }
+  ],
+  "node_symbol": "BIP110"
+}

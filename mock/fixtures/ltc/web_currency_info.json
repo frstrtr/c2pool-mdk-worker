@@ -1,0 +1,34 @@
+{
+  "address_explorer_url_prefix": "https://blockchair.com/litecoin/address/",
+  "block_explorer_url_prefix": "https://blockchair.com/litecoin/block/",
+  "block_period": 150,
+  "coins": [
+    {
+      "address_explorer_url_prefix": "https://blockchair.com/litecoin/address/",
+      "block_explorer_url_prefix": "https://blockchair.com/litecoin/block/",
+      "name": "Litecoin",
+      "primary": true,
+      "symbol": "LTC",
+      "tx_explorer_url_prefix": "https://blockchair.com/litecoin/transaction/"
+    },
+    {
+      "address_explorer_url_prefix": "https://blockchair.com/dogecoin/address/",
+      "block_explorer_url_prefix": "https://blockchair.com/dogecoin/block/",
+      "current_height": 6429374,
+      "current_tip": "e0bf0b13867e2cae5dc8bb35a52f94d9457424f4494d9a42addf19b6db2a4893",
+      "merged": true,
+      "symbol": "DOGE",
+      "tx_explorer_url_prefix": "https://blockchair.com/dogecoin/transaction/"
+    }
+  ],
+  "embedded": true,
+  "explorer_enabled": false,
+  "has_rpc": false,
+  "has_treasury": false,
+  "merged_child_address_explorer_url_prefix": "https://blockchair.com/dogecoin/address/",
+  "merged_child_symbol": "DOGE",
+  "name": "Litecoin",
+  "share_version": 36,
+  "symbol": "LTC",
+  "tx_explorer_url_prefix": "https://blockchair.com/litecoin/transaction/"
+}

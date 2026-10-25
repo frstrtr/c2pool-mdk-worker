@@ -1,0 +1,55 @@
+{
+  "block_value": 10001.14944,
+  "difficulty": 31696261.863299605,
+  "networks": {
+    "DOGE": {
+      "block_value": 10001.14944,
+      "blocks_found": 3,
+      "chain_id": 98,
+      "current_height": 6429378,
+      "current_tip": "69bfb1aa3ccb93d0d937b376f6284f7b7a26f2e0caaa547ba9cd5143d33128e0",
+      "difficulty": 31696261.863299605,
+      "multiaddress": true,
+      "p2p_port": 22556,
+      "rpc_host": "",
+      "rpc_port": 0
+    }
+  },
+  "recent": [
+    {
+      "chainid": 98,
+      "height": 6426090,
+      "miner": null,
+      "network": "DOGE",
+      "parent_hash": "f11e7c6c88ac3c37cb593086a6f4d666d7fc8101bd60265be8d24d17b367b72a",
+      "pow_hash": "b5ac47f643a550abe361a1978b2b5ba0eba379b87eb5cb66622bb386faafe28e",
+      "symbol": "DOGE",
+      "ts": 1792690954,
+      "verified": true
+    },
+    {
+      "chainid": 98,
+      "height": 6390469,
+      "miner": null,
+      "network": "DOGE",
+      "parent_hash": "9c82a173957e10d7d3bf3bc448152ff2adcdf159dbb0f2acd5a5446aed18f93a",
+      "pow_hash": "17300f9b386285ca506d3737f7a5bfec244680dc784de99430cfefc0dfdb33d6",
+      "symbol": "DOGE",
+      "ts": 1790437397,
+      "verified": true
+    },
+    {
+      "chainid": 98,
+      "height": 6367875,
+      "miner": null,
+      "network": "DOGE",
+      "parent_hash": "e178d664dadbd35d513d9df28ccc0832a7ba9dd927ec6c3a6f89c0dbfc5eba2a",
+      "pow_hash": "ac6346846574ff1ae6fcba26c5247cc0ff23ac5cd956bde38f142dbeb09eb63c",
+      "symbol": "DOGE",
+      "ts": 1789001801,
+      "verified": true
+    }
+  ],
+  "symbol": "DOGE",
+  "total_blocks": 3
+}

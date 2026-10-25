@@ -1,0 +1,25 @@
+{
+  "auto_detected": false,
+  "coins": [
+    {
+      "coin": "LTC",
+      "embedded": true,
+      "header_height": 3201128,
+      "height": 3201128,
+      "peers": 20,
+      "primary": true,
+      "sync_percent": 100.0,
+      "synced": true,
+      "target_height": 3201121
+    },
+    {
+      "coin": "DOGE",
+      "embedded": true,
+      "peers": 20,
+      "primary": false,
+      "synced": true
+    }
+  ],
+  "node_symbol": "LTC",
+  "source": "stats_provider"
+}

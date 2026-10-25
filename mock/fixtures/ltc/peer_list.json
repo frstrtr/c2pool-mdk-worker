@@ -1,0 +1,66 @@
+[
+  {
+    "address": "203.0.113.47:50618",
+    "downtime": 0,
+    "incoming": true,
+    "uptime": 603,
+    "version": "v36-0.15-alpha-7-g44a10f3",
+    "web_port": 0
+  },
+  {
+    "address": "203.0.113.48:57928",
+    "downtime": 0,
+    "incoming": true,
+    "uptime": 23157,
+    "version": "unknown 617070",
+    "web_port": 0
+  },
+  {
+    "address": "203.0.113.49:40312",
+    "downtime": 0,
+    "incoming": true,
+    "uptime": 4700,
+    "version": "v36-0.24-hotfix-dirty",
+    "web_port": 0
+  },
+  {
+    "address": "203.0.113.50:9326",
+    "downtime": 0,
+    "incoming": false,
+    "uptime": 57500,
+    "version": "c2pool/0.1.0-alpha",
+    "web_port": 0
+  },
+  {
+    "address": "203.0.113.51:42512",
+    "downtime": 0,
+    "incoming": true,
+    "uptime": 2361,
+    "version": "v36-0.13-alpha-dirty",
+    "web_port": 0
+  },
+  {
+    "address": "203.0.113.52:44708",
+    "downtime": 0,
+    "incoming": true,
+    "uptime": 67,
+    "version": "v36-0.24-hotfix-dirty",
+    "web_port": 0
+  },
+  {
+    "address": "203.0.113.53:37966",
+    "downtime": 0,
+    "incoming": true,
+    "uptime": 671,
+    "version": "v36-0.24-hotfix-dirty",
+    "web_port": 0
+  },
+  {
+    "address": "203.0.113.54:40490",
+    "downtime": 0,
+    "incoming": true,
+    "uptime": 78,
+    "version": "v36-0.24-hotfix-dirty",
+    "web_port": 0
+  }
+]

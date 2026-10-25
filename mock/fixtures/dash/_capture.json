@@ -1,0 +1,156 @@
+{
+  "addresses_replaced": 3,
+  "captured_utc": "2026-10-25T02:57:49+00:00",
+  "coin": "dash",
+  "endpoints": {
+    "api_coin_peers": {
+      "bytes_raw": 2,
+      "http": 200
+    },
+    "api_node_topology": {
+      "bytes_raw": 1069,
+      "http": 200
+    },
+    "best_share": {
+      "bytes_raw": 786,
+      "http": 200
+    },
+    "connected_miners": {
+      "bytes_raw": 38,
+      "http": 200
+    },
+    "current_merged_payouts": {
+      "bytes_raw": 138,
+      "http": 200
+    },
+    "current_payouts": {
+      "bytes_raw": 91,
+      "http": 200
+    },
+    "difficulty": {
+      "bytes_raw": 18,
+      "http": 200
+    },
+    "fee": {
+      "bytes_raw": 3,
+      "http": 200
+    },
+    "global_rate": {
+      "bytes_raw": 21,
+      "http": 200
+    },
+    "global_stats": {
+      "bytes_raw": 537,
+      "http": 200
+    },
+    "local_rate": {
+      "bytes_raw": 3,
+      "http": 200
+    },
+    "local_stats": {
+      "bytes_raw": 5116,
+      "http": 200
+    },
+    "luck_stats": {
+      "bytes_raw": 2286,
+      "http": 200
+    },
+    "merged_stats": {
+      "bytes_raw": 44,
+      "http": 200
+    },
+    "miner_thresholds": {
+      "bytes_raw": 313,
+      "http": 200
+    },
+    "network_difficulty": {
+      "bytes_raw": 137362,
+      "http": 200
+    },
+    "node_info": {
+      "bytes_raw": 131,
+      "http": 200
+    },
+    "p2p_stats": {
+      "bytes_raw": 1015,
+      "http": 200
+    },
+    "p2pool_global_stats": {
+      "bytes_raw": 222,
+      "http": 200
+    },
+    "payout_addr": {
+      "bytes_raw": 2,
+      "http": 200
+    },
+    "payout_addrs": {
+      "bytes_raw": 2,
+      "http": 200
+    },
+    "peer_list": {
+      "bytes_raw": 334,
+      "http": 200
+    },
+    "pplns_current": {
+      "bytes_raw": 517,
+      "http": 200
+    },
+    "pplns_miner_addr": {
+      "bytes_raw": 3885,
+      "http": 200
+    },
+    "rate": {
+      "bytes_raw": 16,
+      "http": 200
+    },
+    "recent_blocks": {
+      "bytes_raw": 20056,
+      "http": 200
+    },
+    "recent_merged_blocks": {
+      "bytes_raw": 2,
+      "http": 200
+    },
+    "sharechain_stats": {
+      "bytes_raw": 1749,
+      "http": 200
+    },
+    "stale_rates": {
+      "bytes_raw": 36,
+      "http": 200
+    },
+    "stratum_stats": {
+      "bytes_raw": 10614,
+      "http": 200
+    },
+    "uptime": {
+      "bytes_raw": 6,
+      "http": 200
+    },
+    "user_stales": {
+      "bytes_raw": 2,
+      "http": 200
+    },
+    "users": {
+      "bytes_raw": 1,
+      "http": 200
+    },
+    "version_signaling": {
+      "bytes_raw": 2054,
+      "http": 200
+    },
+    "web_currency_info": {
+      "bytes_raw": 607,
+      "http": 200
+    },
+    "web_sync_status": {
+      "bytes_raw": 133,
+      "http": 200
+    },
+    "web_version": {
+      "bytes_raw": 20,
+      "http": 200
+    }
+  },
+  "ips_replaced": 5
+}

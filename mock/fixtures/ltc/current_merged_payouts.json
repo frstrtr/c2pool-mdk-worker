@@ -1,0 +1,65 @@
+{
+  "DEXAMPLE2xxxxxxxxxxxxxxxxxxxxxxxxx": {
+    "amount": 0.0,
+    "merged": [
+      {
+        "address": "DEXAMPLE2xxxxxxxxxxxxxxxxxxxxxxxxx",
+        "amount": 13.99639523,
+        "source": "auto-convert",
+        "symbol": "DOGE"
+      }
+    ]
+  },
+  "DEXAMPLE3xxxxxxxxxxxxxxxxxxxxxxxxx": {
+    "amount": 0.0,
+    "merged": [
+      {
+        "address": "DEXAMPLE3xxxxxxxxxxxxxxxxxxxxxxxxx",
+        "amount": 91.2341872,
+        "source": "auto-convert",
+        "symbol": "DOGE"
+      }
+    ]
+  },
+  "LEXAMPLE4xxxxxxxxxxxxxxxxxxxxxxxxx": {
+    "amount": 0.05440467,
+    "merged": []
+  },
+  "LEXAMPLE5xxxxxxxxxxxxxxxxxxxxxxxxx": {
+    "amount": 0.00641402,
+    "merged": []
+  },
+  "LEXAMPLE6xxxxxxxxxxxxxxxxxxxxxxxxx": {
+    "amount": 6.18919239,
+    "merged": [
+      {
+        "address": "DEXAMPLE7xxxxxxxxxxxxxxxxxxxxxxxxx",
+        "amount": 9893.40800138,
+        "source": "auto-convert",
+        "symbol": "DOGE"
+      }
+    ]
+  },
+  "MEXAMPLE8xxxxxxxxxxxxxxxxxxxxxxxxx": {
+    "amount": 2e-08,
+    "merged": [
+      {
+        "address": "AEXAMPLE9xxxxxxxxxxxxxxxxxxxxxxxxx",
+        "amount": 2e-08,
+        "source": "donation",
+        "symbol": "DOGE"
+      }
+    ]
+  },
+  "ltc1qexample10qqqqqqqqqqqqqqqqqqqqqqqqqqqqq": {
+    "amount": 0.00407457,
+    "merged": [
+      {
+        "address": "DEXAMPLE11xxxxxxxxxxxxxxxxxxxxxxxx",
+        "amount": 2.51085617,
+        "source": "auto-convert",
+        "symbol": "DOGE"
+      }
+    ]
+  }
+}

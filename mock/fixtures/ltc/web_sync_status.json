@@ -1,0 +1,16 @@
+{
+  "chain_size": 19442,
+  "has_best_share": true,
+  "has_shares": true,
+  "has_work": true,
+  "ready": true,
+  "spv": {
+    "doge_blocks": 6429334,
+    "doge_need": 250,
+    "ltc_blocks": 3201128,
+    "ltc_height": 3201128,
+    "ltc_need": 106
+  },
+  "uptime_seconds": 58452,
+  "verified_size": 30844
+}
