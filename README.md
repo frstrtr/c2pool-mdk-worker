@@ -52,7 +52,9 @@ installed, `mdk validate worker --path . --smoke` runs the same smoke checks
 plus a pass with the mock stopped, in which every channel must fail with an
 `ERR_*` and `health` must report `OFFLINE`. Working next to an MDK checkout?
 `npm run setup:local` replaces the pinned copy with a symlink to `../mdk` (or
-`$MDK_DIR`).
+`$MDK_DIR`). `package-lock.json` fetches MDK over `git+https`, so CI needs no
+SSH key; `npm install` writes GitHub dependencies back as `git+ssh`, and a unit
+test flags that (the fix is in `tests/unit/package.test.js`).
 
 ## Usage
 
