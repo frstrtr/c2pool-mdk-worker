@@ -8,8 +8,10 @@ Output: <out-dir>/<coin>/<endpoint>.json   (pretty JSON, anonymized, truncated)
 
 Anonymization rules (deterministic within one run):
   * payout addresses -> obvious placeholders of the same length and charset
-      base58  L.../M.../X.../D.../A.../3...  -> <prefix>EXAMPLE<n>xxxx...
-      bech32  ltc1q.../bc1q...               -> <hrp>1qexample<n>qqqq...
+      base58  1.../3.../L.../M.../X.../7.../D.../A.../9...   (mainnet)
+              m.../n.../2.../y...                            (testnet)
+                                              -> <prefix>EXAMPLE<n>xxxx...
+      bech32  bc1/tb1/bcrt1/ltc1/tltc1/rltc1  -> <hrp>1qexample<n>qqqq...
       40-hex pubkey hashes                    -> 0000...000<n>
     applied to keys and values, including "ADDR.worker" and "ADDR1,ADDR2.worker".
   * IPv4[:port] -> 203.0.113.<n>[:port]  (TEST-NET-3), IPv6 -> 2001:db8::<n>
@@ -17,6 +19,9 @@ Anonymization rules (deterministic within one run):
     node_info.external_ip, api/coin_peers).
   * 64-hex block/share hashes are public chain data and are kept.
   * long arrays are truncated to a few entries (see TRUNCATE); per-worker maps are kept whole.
+  * idempotent: a placeholder from an earlier run, and an address in the
+    documentation ranges 203.0.113.0/24 and 2001:db8::/32, is left as it is,
+    so running this over committed fixtures must change nothing.
 
 Run with `python3 -I` so nothing is imported from the capture directory.
 """
@@ -26,9 +31,14 @@ import re
 import sys
 from datetime import datetime, timezone
 
-BASE58 = re.compile(r'^(?P<p>[LMXDA3])[1-9A-HJ-NP-Za-km-z]{25,34}$')
-BECH32 = re.compile(r'^(?P<hrp>ltc|bc|tb|tltc)1[qpzry9x8gf2tvdw0s3jn54khce6mua7l]{20,}$')
+# Version prefixes: BTC 1/3, LTC L/M(/3), DASH X/7, DOGE D/A/9, testnets m/n/2, DASH testnet y.
+# The lookahead keeps a long all-digit string from being taken for an address.
+BASE58 = re.compile(r'^(?=.*[A-Za-z])(?P<p>[13LMX7DA9mn2y])[1-9A-HJ-NP-Za-km-z]{25,34}$')
+BECH32 = re.compile(r'^(?P<hrp>bc|tb|bcrt|ltc|tltc|rltc)1[qpzry9x8gf2tvdw0s3jn54khce6mua7l]{20,}$', re.IGNORECASE)
 HEX40 = re.compile(r'^[0-9a-f]{40}$')
+# Output of an earlier run.
+PLACEHOLDER = re.compile(r'EXAMPLE\d+|example\d+|^0{30,}\d+$')
+DOC_IP = re.compile(r'^\[?(203\.0\.113\.\d{1,3}|2001:db8:[0-9a-fA-F:]*)\]?(:\d{1,5})?$')
 IPV4 = re.compile(r'^(?P<ip>(?:\d{1,3}\.){3}\d{1,3})(?P<port>:\d{1,5})?$')
 IPV6 = re.compile(r'^\[?(?P<ip>[0-9a-fA-F:]*:[0-9a-fA-F:]+)\]?(?P<port>:\d{1,5})?$')
 
@@ -96,6 +106,8 @@ class Anonymizer:
         a = self._maybe_addr(s)
         if a != s:
             return a
+        if DOC_IP.match(s):
+            return s
         m = IPV4.match(s)
         if m:
             return self._placeholder_ip(m.group('ip'), m.group('port'))
@@ -105,6 +117,8 @@ class Anonymizer:
         return s
 
     def _maybe_addr(self, s):
+        if PLACEHOLDER.search(s):
+            return s
         if BASE58.match(s) or BECH32.match(s) or HEX40.match(s):
             return self._placeholder_addr(s)
         return s
