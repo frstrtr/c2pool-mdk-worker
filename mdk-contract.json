@@ -223,7 +223,7 @@
       "E_POOL_API": "The c2pool node did not answer, answered with an error or with an unexpected shape; see the specific ERR_C2POOL_* in the message",
       "ERR_C2POOL_NODE_UNREACHABLE": "No HTTP response from nodeUrl within timeoutMs (connection refused, DNS, TLS or timeout)",
       "ERR_C2POOL_HTTP": "The node answered a non-2xx status; the message carries the path and status",
-      "ERR_C2POOL_DATA": "A field in an otherwise valid response is missing or malformed; the message names the field",
+      "ERR_C2POOL_DATA": "A field in an otherwise valid response is missing or malformed, or a response body is over 4 MiB; the message names the field, or the path and size",
       "ERR_C2POOL_NODE_URL_INVALID": "nodeUrl is not a plain http(s) URL (optional path prefix for a reverse proxy; no query, fragment, credentials or /control segment)",
       "ERR_C2POOL_ADDRESS_INVALID": "An entry in addresses is empty, duplicated or not an address string",
       "ERR_C2POOL_CONFIG_INVALID": "A device config key is unknown, or coin, hashrateFloor, pollIntervalMs, timeoutMs, noShareAlertMs or recentBlocks is of the wrong type or out of range; the message names the key",

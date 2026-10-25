@@ -1,7 +1,7 @@
 'use strict'
 
 const { C2poolApiError, DataError, ConfigError } = require('../errors')
-const { DEFAULT_NODE_URL, DEFAULTS, PATHS } = require('../constants')
+const { DEFAULT_NODE_URL, DEFAULTS, PATHS, MAX_BODY_BYTES } = require('../constants')
 
 /**
  * Read-only client for a c2pool node's web API (default port 8080).
@@ -15,14 +15,16 @@ class C2poolApi {
    * @param {object} [options]
    * @param {string} [options.nodeUrl]   http(s) origin, optionally with a path prefix (reverse proxy)
    * @param {number} [options.timeoutMs] per-request timeout, body included
+   * @param {number} [options.maxBodyBytes] largest response body read
    * @param {Function} [options.fetch]   test seam; defaults to the global fetch
    */
-  constructor ({ nodeUrl = DEFAULT_NODE_URL, timeoutMs = DEFAULTS.timeoutMs, fetch = globalThis.fetch } = {}) {
+  constructor ({ nodeUrl = DEFAULT_NODE_URL, timeoutMs = DEFAULTS.timeoutMs, maxBodyBytes = MAX_BODY_BYTES, fetch = globalThis.fetch } = {}) {
     if (!(typeof timeoutMs === 'number' && Number.isFinite(timeoutMs) && timeoutMs > 0)) {
       throw new ConfigError('ERR_C2POOL_CONFIG_INVALID', 'timeoutMs')
     }
     this._base = parseNodeUrl(nodeUrl)
     this._timeoutMs = timeoutMs
+    this._maxBodyBytes = maxBodyBytes
     this._fetch = fetch
   }
 
@@ -54,18 +56,47 @@ class C2poolApi {
       throw new C2poolApiError(path, res.status)
     }
 
-    let text
-    try {
-      text = await res.text()
-    } catch (err) {
-      throw new C2poolApiError(path, 0, transportCode(err))
-    }
+    const text = await readText(res, path, this._maxBodyBytes)
     try {
       return JSON.parse(text)
     } catch {
       throw new DataError(`${path} (invalid JSON)`)
     }
   }
+}
+
+/**
+ * Read a response body as UTF-8, refusing one larger than `limit` bytes:
+ * by Content-Length when the node sends it, otherwise while streaming.
+ */
+async function readText (res, path, limit) {
+  const tooLarge = (size) => new DataError(`${path} (response is ${size} bytes, over the ${limit} byte limit)`)
+  const declared = Number(res.headers.get('content-length'))
+  if (Number.isFinite(declared) && declared > limit) {
+    await res.body?.cancel().catch(() => {})
+    throw tooLarge(declared)
+  }
+  if (!res.body) return ''
+
+  const reader = res.body.getReader()
+  const chunks = []
+  let size = 0
+  try {
+    for (;;) {
+      const { done, value } = await reader.read()
+      if (done) break
+      size += value.byteLength
+      if (size > limit) {
+        await reader.cancel().catch(() => {})
+        throw tooLarge(`at least ${size}`)
+      }
+      chunks.push(value)
+    }
+  } catch (err) {
+    if (err instanceof DataError) throw err
+    throw new C2poolApiError(path, 0, transportCode(err))
+  }
+  return Buffer.concat(chunks, size).toString('utf8')
 }
 
 /**

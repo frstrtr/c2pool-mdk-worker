@@ -3,7 +3,7 @@
 const test = require('brittle')
 const http = require('node:http')
 const { C2poolApi, parseNodeUrl } = require('../../src/api/client')
-const { PATHS } = require('../../src/constants')
+const { PATHS, MAX_BODY_BYTES } = require('../../src/constants')
 
 async function freePort () {
   const server = http.createServer()
@@ -83,6 +83,30 @@ test('HTTP errors, redirects, bad JSON, timeouts and refused connections map to 
 
   const blocked = new C2poolApi({ nodeUrl: 'http://127.0.0.1:6667' })
   await t.exception(blocked.get('/local_stats'), /ERR_C2POOL_NODE_UNREACHABLE \/local_stats BAD_PORT$/, 'a port fetch refuses to dial')
+})
+
+test('a response body over the size limit is refused, declared or streamed', async t => {
+  const { url } = await httpServer(t, (req, res) => {
+    const body = JSON.stringify({ pad: 'x'.repeat(2000) })
+    if (req.url === '/local_stats') {
+      res.setHeader('Content-Length', Buffer.byteLength(body))
+      return res.end(body)
+    }
+    if (req.url === '/global_stats') {
+      // chunked, no Content-Length
+      res.write(body.slice(0, 1000))
+      return setTimeout(() => res.end(body.slice(1000)), 20)
+    }
+    res.end('{"small":true}')
+  })
+  const api = new C2poolApi({ nodeUrl: url, maxBodyBytes: 1024 })
+  await t.exception(api.get('/local_stats'), /ERR_C2POOL_DATA \/local_stats \(response is 2010 bytes, over the 1024 byte limit\)$/)
+  await t.exception(api.get('/global_stats'), /ERR_C2POOL_DATA \/global_stats \(response is at least \d+ bytes, over the 1024 byte limit\)$/)
+  t.alike(await api.get('/stratum_stats'), { small: true }, 'a body under the limit is read')
+
+  const roomy = new C2poolApi({ nodeUrl: url, maxBodyBytes: 2010 })
+  t.is((await roomy.get('/local_stats')).pad.length, 2000, 'a body exactly at the limit is read')
+  t.is(MAX_BODY_BYTES, 4 * 1024 * 1024, 'the default limit is 4 MiB')
 })
 
 test('an error message carries the path, never the host or the body', async t => {

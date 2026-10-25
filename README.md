@@ -229,7 +229,7 @@ the device config.
 |---|---|
 | `ERR_C2POOL_NODE_UNREACHABLE` | No HTTP response within `timeoutMs` (refused, DNS, TLS, timeout, or a port `fetch` refuses to dial). The message names the path and the transport code. |
 | `ERR_C2POOL_HTTP` | The node answered a non-2xx status, including a redirect, which is never followed. |
-| `ERR_C2POOL_DATA` | A response or a field in it is missing or malformed; the message names it. |
+| `ERR_C2POOL_DATA` | A response or a field in it is missing or malformed, or a response body is over 4 MiB; the message names the field, or the path and size. |
 | `ERR_C2POOL_NODE_URL_INVALID` | `nodeUrl` is not a plain http(s) URL. |
 | `ERR_C2POOL_ADDRESS_INVALID` | An entry of `addresses` is empty, duplicated or not an address string. |
 | `ERR_C2POOL_CONFIG_INVALID` | An unknown config key, or a value of the wrong type or out of range; the message names the key. |
@@ -248,7 +248,8 @@ default `pollIntervalMs` that is at most 14 requests a minute per device, about
 60 KB per poll on a node with 25 rigs. Concurrent channel reads share one
 in-flight poll, and a failed poll is reused for 10 s, so a down node costs one
 request per metrics pull. Every request is a `GET` with a timeout, to a fixed
-allow-list of paths, with redirects refused.
+allow-list of paths, with redirects refused and the response body capped at
+4 MiB.
 
 ## Mock and live check
 

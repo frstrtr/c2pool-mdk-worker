@@ -38,6 +38,9 @@ module.exports = {
     recentBlocks: 50
   }),
   MIN_POLL_INTERVAL_MS: 5 * SECOND_MS,
+  // Largest response body read from the node. The biggest one the worker
+  // reads, /recent_blocks, is tens of KB on a busy node.
+  MAX_BODY_BYTES: 4 * 1024 * 1024,
   MAX_RECENT_BLOCKS: 1000,
 
   // /node_info and /web/currency_info change only on a node restart.
