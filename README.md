@@ -101,8 +101,9 @@ on the first telemetry call, not at load time, so one misconfigured device does
 not stop the others. The worker takes no `env` and no credentials: the node's
 API is unauthenticated and the worker only reads it.
 
-Point each device at the node your rigs connect to. A node sees only the rigs
-connected to it; the same address may also hash on other nodes, which
+Point each device at the node your rigs connect to; on a relay node, configure
+`addresses`, since it has no stratum sessions to take the scope from. A node
+sees only the rigs connected to it; the same address may also hash on other nodes, which
 `pplns_share` (pool-wide) reflects and `workers_online` (this node) does not.
 PPLNS is pool-wide, so if the same address is configured on two devices, each
 device reports its full `pending_payout`.
@@ -117,7 +118,7 @@ as the node reports them.
 
 | channel | unit | source and meaning |
 |---|---|---|
-| `hashrate` | H/s | Σ over scope workers of `stratum_stats.workers[].hash_rate − dead_hash_rate`: the node's vardiff estimate, net of dead work. 0 is a true reading (no rigs in scope here). |
+| `hashrate` | H/s | Σ over scope workers of `max(0, stratum_stats.workers[].hash_rate − dead_hash_rate)`: the node's vardiff estimate, net of dead work and clamped at 0 per worker. 0 is a true reading (no rigs in scope here). |
 | `hashrate_dead` | H/s | Σ `dead_hash_rate` over scope. |
 | `workers_online` | | Scope workers in state `hashing`. A worker is one stratum username, not a connection. |
 | `workers_stalled` | | Scope workers in state `stalled`. |
@@ -149,7 +150,11 @@ polled every channel fails with the poll's error. `share_difficulty` fails while
 the node reports `null` (sharechain too young), and the four PPLNS payout
 channels fail with `ERR_C2POOL_NOT_READY` while `/web/sync_status.ready` is
 false. On a relay node (no stratum acceptor) the six local-miner channels fail
-with `ERR_C2POOL_RELAY_NODE`.
+with `ERR_C2POOL_RELAY_NODE`. A relay node has no stratum sessions, so unless
+`addresses` is configured the scope is empty and the PPLNS channels
+(`pplns_share`, `pending_payout`, `pending_payout_merged`,
+`estimated_earnings`) read a true 0; configure `addresses` on a device that
+points at a relay node.
 
 ### Worker states
 
@@ -193,7 +198,7 @@ are not included; see `pending_payout_merged`.
 
 | status | when |
 |---|---|
-| `OFFLINE` | The last poll failed (unreachable, non-2xx, bad JSON, wrong coin), the device config is invalid, or the newest snapshot is older than 3 poll intervals. `alerts` is `['alert.pool_unreachable']` and `detail.error` the `ERR_*` code. |
+| `OFFLINE` | The last poll failed (unreachable, non-2xx, bad JSON, wrong coin) or the device config is invalid. `alerts` is `['alert.pool_unreachable']` and `detail.error` the `ERR_*` code. |
 | `DEGRADED` | The poll succeeded and at least one alert below fires. |
 | `OK` | The poll succeeded and no alert fires. |
 
