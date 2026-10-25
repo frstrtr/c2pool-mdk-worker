@@ -1,0 +1,233 @@
+{
+  "$schema": "./node_modules/@tetherto/mdk/backend/core/mdk-worker/mdk-contract.schema.json",
+  "metadata": {
+    "provider": "c2pool",
+    "deviceFamily": "minerpool",
+    "brand": "c2pool",
+    "modelsSupported": [
+      "C2POOL-BTC",
+      "C2POOL-LTC",
+      "C2POOL-DASH"
+    ],
+    "overview": "Reads one self-hosted c2pool node (decentralized p2pool, PPLNS over a sharechain) through its read-only HTTP API: local stratum hashrate and workers, sharechain and peer health, blocks found, and the projected coinbase payout for the configured payout addresses. Non-custodial: miners are paid directly in the coinbase of every block the pool finds, so there is no account, no balance and no withdrawal. Multi-coin (BTC first, also LTC with merged DOGE and DASH); amounts are in the node's primary coin, see the `coin` channel. No commands; the worker never writes to the node."
+  },
+  "capabilities": {
+    "telemetry": [
+      {
+        "name": "hashrate",
+        "unit": "H/s",
+        "type": "number",
+        "handler": "src/telemetry/hashrate.js",
+        "description": "Hashrate of the scope's stratum workers on this node, net of dead work: sum of stratum_stats.workers[].hash_rate - dead_hash_rate, the node's vardiff estimate per worker (noisy over minutes for a few rigs on a high share difficulty). Scope = the configured payout addresses, or every address with a stratum session on this node when none are configured. 0 is a true reading: no rigs in scope on this node. Fails with ERR_C2POOL_RELAY_NODE on a relay node, which has no stratum acceptor."
+      },
+      {
+        "name": "hashrate_dead",
+        "unit": "H/s",
+        "type": "number",
+        "handler": "src/telemetry/hashrate-dead.js",
+        "description": "Dead (rejected or stale) part of the scope's stratum hashrate on this node: sum of stratum_stats.workers[].dead_hash_rate. Fails with ERR_C2POOL_RELAY_NODE on a relay node."
+      },
+      {
+        "name": "workers_online",
+        "unit": "",
+        "type": "number",
+        "handler": "src/telemetry/workers-online.js",
+        "description": "Workers in scope hashing on this node: they shared here and are not silent. A worker is one stratum username (ADDRESS.worker), not a connection; a rig with two connections counts once. The node marks a connection silent after max(900 s, 6 expected share intervals at its difficulty). This node only: the same address may hash on other nodes, see pplns_share for the pool-wide view. Fails with ERR_C2POOL_RELAY_NODE on a relay node."
+      },
+      {
+        "name": "workers_stalled",
+        "unit": "",
+        "type": "number",
+        "handler": "src/telemetry/workers-stalled.js",
+        "description": "Workers in scope that shared on this node and then went silent past the node's own threshold. 1 or more raises alert.workers_stalled; health.detail.stalled_workers names them. Fails with ERR_C2POOL_RELAY_NODE on a relay node."
+      },
+      {
+        "name": "workers_standby",
+        "unit": "",
+        "type": "number",
+        "handler": "src/telemetry/workers-standby.js",
+        "description": "Workers in scope that are connected to this node but never shared on it. Normal for a failover connection, not a fault on its own. Fails with ERR_C2POOL_RELAY_NODE on a relay node."
+      },
+      {
+        "name": "workers",
+        "unit": "",
+        "type": "array",
+        "handler": "src/telemetry/workers.js",
+        "description": "One row per worker in scope: { name (stratum username), address (primary payout address), worker, hashrate (H/s, net of dead), hashrate_dead, difficulty, connections, accepted, rejected, stale, state (hashing | standby | stalled), last_share_age_s (null when it never shared), connected_seconds }. Sorted by name, at most 1000 rows. Never contains IP addresses or endpoints. Fails with ERR_C2POOL_RELAY_NODE on a relay node."
+      },
+      {
+        "name": "pplns_share",
+        "unit": "",
+        "type": "number",
+        "handler": "src/telemetry/pplns-share.js",
+        "description": "Fraction 0..1 of the current PPLNS window owed to the scope addresses: sum of pplns/current.miners[].pct. Pool-wide: it counts shares submitted through any node. 0 when no scope address has a share in the window. Fails with ERR_C2POOL_NOT_READY while /web/sync_status.ready is false."
+      },
+      {
+        "name": "pending_payout",
+        "unit": "coin",
+        "type": "number",
+        "handler": "src/telemetry/pending-payout.js",
+        "description": "Coins the scope addresses would receive in the coinbase if the pool found a block now, at the current template, net of pool fee and donation: sum of pplns/current.miners[].amount, in units of the coin channel. Not a balance: nobody holds it and it cannot be withdrawn. It decays as shares leave the window and is 0 after one window without shares. If the same address is configured on two devices, each reports it in full. Fails with ERR_C2POOL_NOT_READY while /web/sync_status.ready is false."
+      },
+      {
+        "name": "pending_payout_merged",
+        "unit": "",
+        "type": "object",
+        "handler": "src/telemetry/pending-payout-merged.js",
+        "description": "Merged-mining counterpart of pending_payout: { SYMBOL: coins } summed over the scope from pplns/current.miners[].merged[], e.g. { DOGE: 9895.9 } on a Litecoin node. Every merged chain is listed, 0 when the scope has no share. {} when the node merge-mines nothing (BTC, DASH). Fails with ERR_C2POOL_NOT_READY while /web/sync_status.ready is false."
+      },
+      {
+        "name": "estimated_earnings",
+        "unit": "coin",
+        "type": "number",
+        "handler": "src/telemetry/estimated-earnings.js",
+        "description": "Expected coins per day: expected_blocks_per_day * pending_payout. An expectation, not a settlement: it assumes pool hashrate, network difficulty, the scope's share of the window and the block template stay as they are for 24 h and that found blocks are not orphaned. Realized income arrives as whole payouts, 0, 1 or more a day; read expected_blocks_per_day for how lumpy. Primary coin only; merged coins are in pending_payout_merged. Fails with ERR_C2POOL_DATA when pool hashrate or network difficulty is 0 or missing, and with ERR_C2POOL_NOT_READY while /web/sync_status.ready is false."
+      },
+      {
+        "name": "expected_blocks_per_day",
+        "unit": "",
+        "type": "number",
+        "handler": "src/telemetry/expected-blocks-per-day.js",
+        "description": "Expected blocks per day for the whole pool, a Poisson rate: pool_hashrate * 86400 / (network_difficulty * 2^32). 0.04 means one block about every 26 days. Fails with ERR_C2POOL_DATA when pool hashrate or network difficulty is 0 or missing."
+      },
+      {
+        "name": "pool_hashrate",
+        "unit": "H/s",
+        "type": "number",
+        "handler": "src/telemetry/pool-hashrate.js",
+        "description": "Whole-pool hashrate across all nodes, estimated by the node from the sharechain window (global_stats.pool_hash_rate). Lags real changes by hours."
+      },
+      {
+        "name": "network_difficulty",
+        "unit": "",
+        "type": "number",
+        "handler": "src/telemetry/network-difficulty.js",
+        "description": "Current network block difficulty of the primary coin (global_stats.network_block_difficulty)."
+      },
+      {
+        "name": "network_hashrate",
+        "unit": "H/s",
+        "type": "number",
+        "handler": "src/telemetry/network-hashrate.js",
+        "description": "Network hashrate of the primary coin: network_difficulty * 2^32 / block_period, with the coin's target block period from /web/currency_info (BTC 600 s, LTC 150 s, DASH 150 s). The node's own network_hashrate field is not used: it assumes 150 s on every coin."
+      },
+      {
+        "name": "block_value",
+        "unit": "",
+        "type": "object",
+        "handler": "src/telemetry/block-value.js",
+        "description": "The current block template's coinbase in coins: { total, miner_net (after pool fee; what PPLNS splits), miner_gross, fee, payments, basis, height, age_sec, fee_percent }. On DASH payments are the masternode, superblock and platform lanes; on other coins the node reports payments equal to total. basis 'projected' means no live template (relay or idle node): subsidy only, no fees. basis, height and age_sec are null on builds that do not report them."
+      },
+      {
+        "name": "blocks_found_24h",
+        "unit": "",
+        "type": "number",
+        "handler": "src/telemetry/blocks-found-24h.js",
+        "description": "Blocks the pool found in the last 24 hours, pool-wide (found by this node or relayed by sharechain peers), counted over the newest recentBlocks rows of /recent_blocks and excluding status orphaned. The node's status field is advisory."
+      },
+      {
+        "name": "last_block_found",
+        "unit": "",
+        "type": "object",
+        "handler": "src/telemetry/last-block-found.js",
+        "description": "The newest block the node knows the pool found: { height, hash, ts (unix seconds), found_by (this_node | sharechain_peer), status (pending | confirmed | orphaned | stale), confirmations, block_reward, explorer_url }, or null when the node knows none."
+      },
+      {
+        "name": "share_difficulty",
+        "unit": "",
+        "type": "number",
+        "handler": "src/telemetry/share-difficulty.js",
+        "description": "The pool's current share-difficulty floor (p2pool min_difficulty, global_stats.min_difficulty). Fails with ERR_C2POOL_DATA while the node reports null, which it does while the sharechain is too young."
+      },
+      {
+        "name": "stale_rate",
+        "unit": "",
+        "type": "number",
+        "handler": "src/telemetry/stale-rate.js",
+        "description": "Fraction 0..1 of shares in the sharechain window that are stale, orphan plus dead on arrival (local_stats.my_stale_proportions_in_last_hour.stale). Window-wide, not per scope. The orphan and DOA parts are in sharechain."
+      },
+      {
+        "name": "efficiency",
+        "unit": "",
+        "type": "number",
+        "handler": "src/telemetry/efficiency.js",
+        "description": "Valid shares divided by all shares in the window (local_stats.efficiency), 0..1. Fails with ERR_C2POOL_DATA when the node reports null."
+      },
+      {
+        "name": "sharechain",
+        "unit": "",
+        "type": "object",
+        "handler": "src/telemetry/sharechain.js",
+        "description": "Sharechain state: { synced (the node is ready: shares verified and a work template), height, shares_in_window, window_size, verified, peers_in, peers_out, unique_miners (distinct payout addresses pool-wide), orphan_rate, doa_rate, local_orphan_rate (DASH build only), protocol_version, share_version, coin_chain }. coin_chain = { synced, sync_percent, height, target_height, peers } of the primary coin's header follower, present when /api/node_topology reports it; a field the node does not report is null."
+      },
+      {
+        "name": "peers",
+        "unit": "",
+        "type": "number",
+        "handler": "src/telemetry/peers.js",
+        "description": "Sharechain P2P peers of this node, incoming plus outgoing. Not coin-network peers. 0 raises alert.no_peers: the node's shares cannot propagate."
+      },
+      {
+        "name": "coin",
+        "unit": "",
+        "type": "string",
+        "handler": "src/telemetry/coin.js",
+        "description": "The node's primary coin symbol from /node_info: BTC, BIP110 (the Bitcoin BIP-110 lane), LTC or DASH. The unit of every channel whose unit is 'coin'."
+      },
+      {
+        "name": "node",
+        "unit": "",
+        "type": "object",
+        "handler": "src/telemetry/node.js",
+        "description": "Node identity: { version, protocol_version, role (mining | relay; null on builds that do not report it), uptime_s, network, worker_port, warnings }. warnings are the node's own banners such as 'No miners connected', passed through unmodified, at most 20."
+      },
+      {
+        "name": "health",
+        "unit": "",
+        "type": "object",
+        "handler": "src/telemetry/health.js",
+        "description": "{ status, alerts, detail }. OFFLINE when the last poll of the node failed or the device config is invalid (alert.pool_unreachable; detail.error is the ERR_* code); DEGRADED when any other alert fires; OK otherwise. detail holds the numbers the rules used, stalled_workers (names only) and notes (node warnings, a projected or stale block template, rules that could not be evaluated). Never echoes the device config."
+      }
+    ],
+    "commands": [],
+    "config": {
+      "schema": "c2pool_config_v1"
+    },
+    "health": {
+      "supportedStates": [
+        "OK",
+        "DEGRADED",
+        "OFFLINE"
+      ],
+      "alerts": [
+        "alert.pool_unreachable",
+        "alert.sharechain_not_synced",
+        "alert.no_peers",
+        "alert.hashrate_low",
+        "alert.workers_stalled",
+        "alert.no_recent_shares"
+      ],
+      "troubleshooting": [
+        "If alert.pool_unreachable, check that the c2pool process is running and that nodeUrl points at its web port (default 8080); the worker only needs GET access to /local_stats and siblings.",
+        "If alert.sharechain_not_synced, the node is downloading or verifying the sharechain or its coin headers; wait, then check /web/sync_status and /api/node_topology on the node. No payout is lost while miners keep submitting to a synced node elsewhere.",
+        "If alert.no_peers, the node has no sharechain P2P peers, so its shares cannot propagate and will be orphaned; check the p2p port (/node_info.p2p_port) is reachable and that the node has bootstrap peers.",
+        "If alert.hashrate_low, compare with the rigs' own dashboards first; the node estimates hashrate from vardiff shares and a few rigs on a high share difficulty are noisy over minutes.",
+        "If alert.workers_stalled, the listed workers were submitting shares on this node and stopped; check the rig or its network path. A worker in standby is not a fault: it is a failover connection that never hashed here.",
+        "If alert.no_recent_shares, rigs are connected but nothing is accepted; check the stratum username (ADDRESS.worker, a valid payout address for this coin) and the rig's difficulty settings.",
+        "estimated_earnings is an expectation (expected blocks per day x projected coinbase share), not a settlement; read expected_blocks_per_day before acting on it."
+      ]
+    },
+    "errors": {
+      "E_POOL_API": "The c2pool node did not answer, answered with an error or with an unexpected shape; see the specific ERR_C2POOL_* in the message",
+      "ERR_C2POOL_NODE_UNREACHABLE": "No HTTP response from nodeUrl within timeoutMs (connection refused, DNS, TLS or timeout)",
+      "ERR_C2POOL_HTTP": "The node answered a non-2xx status; the message carries the path and status",
+      "ERR_C2POOL_DATA": "A field in an otherwise valid response is missing or malformed; the message names the field",
+      "ERR_C2POOL_NODE_URL_INVALID": "nodeUrl is not a plain http(s) URL (optional path prefix for a reverse proxy; no query, fragment, credentials or /control segment)",
+      "ERR_C2POOL_ADDRESS_INVALID": "An entry in addresses is empty, duplicated or not an address string",
+      "ERR_C2POOL_CONFIG_INVALID": "A device config key is unknown, or coin, hashrateFloor, pollIntervalMs, timeoutMs, noShareAlertMs or recentBlocks is of the wrong type or out of range; the message names the key",
+      "ERR_C2POOL_COIN_MISMATCH": "The configured coin does not match the node's /node_info symbol",
+      "ERR_C2POOL_RELAY_NODE": "The node runs without a stratum acceptor (node_role relay); it has no local miners, point the worker at the node your rigs connect to",
+      "ERR_C2POOL_NOT_READY": "The node is up but /web/sync_status.ready is false (no verified shares or no work template yet); the PPLNS payout channels fail with it rather than report a projection from an unverified sharechain"
+    }
+  }
+}
